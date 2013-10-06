@@ -71,6 +71,7 @@
 #include "xbmc/android/activity/XBMCApp.h"
 #endif
 #include "FileItemListModification.h"
+#include "ContextMenuManager.h"
 
 #define CONTROL_BTNVIEWASICONS       2
 #define CONTROL_BTNSORTBY            3
@@ -1619,6 +1620,8 @@ bool CGUIMediaWindow::OnContextButton(int itemNumber, CONTEXT_BUTTON button)
   default:
     break;
   }
+  if (button >= CONTEXT_BUTTON_FIRST_ADDON)
+    return CContextMenuManager::Get().Execute(button, m_vecItems->Get(itemNumber));
   return false;
 }
 
