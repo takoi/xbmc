@@ -6350,6 +6350,8 @@ bool CVideoDatabase::GetTvShowsNav(const CStdString& strBaseDir, CFileItemList& 
     videoUrl.AddOption("tagid", idTag);
 
   Filter filter;
+  if (g_advancedSettings.m_bVideoLibraryHideEmptySeries)
+    filter.AppendWhere("totalCount IS NOT NULL AND totalCount>0");
   return GetTvShowsByWhere(videoUrl.ToString(), filter, items, sortDescription);
 }
 
@@ -6407,10 +6409,9 @@ bool CVideoDatabase::GetTvShowsByWhere(const CStdString& strBaseDir, const Filte
       
       CFileItemPtr pItem(new CFileItem());
       CVideoInfoTag movie = GetDetailsForTvShow(record, false, pItem.get());
-      if ((CProfilesManager::Get().GetMasterProfile().getLockMode() == LOCK_MODE_EVERYONE ||
+      if (CProfilesManager::Get().GetMasterProfile().getLockMode() == LOCK_MODE_EVERYONE ||
            g_passwordManager.bMasterUser                                     ||
-           g_passwordManager.IsDatabasePathUnlocked(movie.m_strPath, *CMediaSourceSettings::Get().GetSources("video"))) &&
-          (!g_advancedSettings.m_bVideoLibraryHideEmptySeries || movie.m_iEpisode > 0))
+           g_passwordManager.IsDatabasePathUnlocked(movie.m_strPath, *CMediaSourceSettings::Get().GetSources("video")))
       {
         pItem->SetFromVideoInfoTag(movie);
 
