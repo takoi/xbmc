@@ -73,97 +73,138 @@ namespace VIDEO
   CVideoInfoScanner::~CVideoInfoScanner()
   {
   }
+  
+  static void Walk(const std::string path, std::list<std::string> &files)
+  {
+    const int flags = XFILE::DIR_FLAG_NO_FILE_DIRS | XFILE::DIR_FLAG_NO_FILE_INFO | DIR_FLAG_BYPASS_CACHE;
+    CFileItemList items;
+    XFILE::CDirectory::GetDirectory(path, items, "", flags);
+    
+    for (int i = 0; i < items.Size(); ++i)
+    {
+      if (items[i]->m_bIsFolder)
+      {
+        Walk(items[i]->GetPath(), files);
+      }
+      else
+      {
+        files.push_back(items[i]->GetPath());
+      }
+    }
+  }
+
+  void CVideoInfoScanner::SlowScan(const std::string& root)
+  {
+    CLog::Log(LOGNOTICE, "VideoInfoScanner2: slow scan ('%s')", root.c_str());
+    unsigned int startTime;
+    
+    startTime = XbmcThreads::SystemClockMillis();
+    std::list<std::string> files;
+    Walk(root, files);
+    CLog::Log(LOGNOTICE, "VideoInfoScanner2: walk found %lu files in %u ms", files.size(),
+              (XbmcThreads::SystemClockMillis() - startTime));
+    
+    
+    startTime = XbmcThreads::SystemClockMillis();
+    std::list<std::string> newPaths;
+    CVideoDatabase database;
+    database.Open();
+    for (std::list<std::string>::const_iterator it = files.begin(); it != files.end(); ++it)
+    {
+      if (database.GetPathId(*it) == -1)
+      {
+        newPaths.push_back(*it);
+      }
+    }
+    database.Close();
+    CLog::Log(LOGNOTICE, "VideoInfoScanner2: db lookup found %lu new files in %u ms", files.size(),
+              (XbmcThreads::SystemClockMillis() - startTime));
+
+
+    //the complex stuff goes here
+    std::list<std::string> filtered;
+    for(std::list<std::string>::const_iterator it = files.begin(); it != files.end(); ++it)
+    {
+      if (URIUtils::GetExtension(*it) == ".mkv")
+        filtered.push_back(*it);
+    }
+    
+
+    startTime = XbmcThreads::SystemClockMillis();
+    database.Open();
+    ScraperPtr scraper = database.GetScraperForPath(root);
+    database.Close();
+    for (std::list<std::string>::const_iterator it = filtered.begin(); it != filtered.end(); ++it)
+    {
+      CFileItem item;
+      item.SetPath(*it);
+      CScraperUrl url;
+      int foundUrl = FindVideo(item.GetMovieName(false), scraper, url, NULL);
+      if (foundUrl > 0)
+      {
+        bool foundDetails = GetDetails(&item, url, scraper, NULL, NULL);
+        if (foundDetails)
+        {
+          int dbId = AddVideo(&item, CONTENT_MOVIES, false, false);
+        }
+      }
+    }
+    CLog::Log(LOGNOTICE, "VideoInfoScanner2: retrieved info for %lu files in %u ms", filtered.size(),
+              (XbmcThreads::SystemClockMillis() - startTime));
+  }
+
+  static bool containsParent(const std::list<std::string>& list, const std::string& path)
+  {
+    for(std::list<std::string>::const_iterator it = list.begin(); it != list.end(); ++it)
+    {
+      if (it->size() < path.size() && strncmp(it->c_str(), path.c_str(), it->size()) == 0)
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  static void GetRootPaths(std::list<std::string>& res)
+  {
+    std::set<CStdString> pathSet;
+    CVideoDatabase database;
+    database.Open();
+    database.GetPaths(pathSet);
+    database.Close();
+
+    std::list<std::string> pathList(pathSet.size());
+    std::copy(pathSet.begin(), pathSet.end(), pathList.begin());
+    for (std::list<std::string>::const_iterator it = pathList.begin(); it != pathList.end(); ++it)
+    {
+      if (!containsParent(pathList, *it))
+      {
+        res.push_back(*it);
+      }
+    }
+  }
 
   void CVideoInfoScanner::Process()
   {
-    try
+    //surely there is a way of doing all of this in 1 line ??
+    std::list<std::string> paths;
+    GetRootPaths(paths);
+    std::list<std::string> movieFolders;
+    CVideoDatabase database;
+    database.Open();
+    for (std::list<std::string>::const_iterator it = paths.begin(); it != paths.end(); ++it)
     {
-      if (m_showDialog && !CSettings::Get().GetBool("videolibrary.backgroundupdate"))
+      ScraperPtr scraper = database.GetScraperForPath(*it);
+      if (scraper && scraper->Content() == CONTENT_MOVIES)
       {
-        CGUIDialogExtendedProgressBar* dialog =
-          (CGUIDialogExtendedProgressBar*)g_windowManager.GetWindow(WINDOW_DIALOG_EXT_PROGRESS);
-        if (dialog)
-           m_handle = dialog->GetHandle(g_localizeStrings.Get(314));
+        movieFolders.push_back(*it);
       }
-
-      // check if we only need to perform a cleaning
-      if (m_bClean && m_pathsToScan.empty())
-      {
-        CleanDatabase(m_handle, NULL, false);
-
-        if (m_handle)
-          m_handle->MarkFinished();
-        m_handle = NULL;
-
-        m_bRunning = false;
-
-        return;
-      }
-
-      unsigned int tick = XbmcThreads::SystemClockMillis();
-
-      m_database.Open();
-
-      m_bCanInterrupt = true;
-
-      CLog::Log(LOGNOTICE, "VideoInfoScanner: Starting scan ..");
-      ANNOUNCEMENT::CAnnouncementManager::Get().Announce(ANNOUNCEMENT::VideoLibrary, "xbmc", "OnScanStarted");
-
-      // Reset progress vars
-      m_currentItem = 0;
-      m_itemCount = -1;
-
-      SetPriority(GetMinPriority());
-
-      // Database operations should not be canceled
-      // using Interupt() while scanning as it could
-      // result in unexpected behaviour.
-      m_bCanInterrupt = false;
-
-      bool bCancelled = false;
-      while (!bCancelled && m_pathsToScan.size())
-      {
-        /*
-         * A copy of the directory path is used because the path supplied is
-         * immediately removed from the m_pathsToScan set in DoScan(). If the
-         * reference points to the entry in the set a null reference error
-         * occurs.
-         */
-        CStdString directory = *m_pathsToScan.begin();
-        if (!CDirectory::Exists(directory))
-        {
-          /*
-           * Note that this will skip clean (if m_bClean is enabled) if the directory really
-           * doesn't exist rather than a NAS being switched off.  A manual clean from settings
-           * will still pick up and remove it though.
-           */
-          CLog::Log(LOGWARNING, "%s directory '%s' does not exist - skipping scan%s.", __FUNCTION__, CURL::GetRedacted(directory).c_str(), m_bClean ? " and clean" : "");
-          m_pathsToScan.erase(m_pathsToScan.begin());
-        }
-        else if (!DoScan(directory))
-          bCancelled = true;
-      }
-
-      if (!bCancelled)
-      {
-        if (m_bClean)
-          CleanDatabase(m_handle,&m_pathsToClean, false);
-        else
-        {
-          if (m_handle)
-            m_handle->SetTitle(g_localizeStrings.Get(331));
-          m_database.Compress(false);
-        }
-      }
-
-      m_database.Close();
-
-      tick = XbmcThreads::SystemClockMillis() - tick;
-      CLog::Log(LOGNOTICE, "VideoInfoScanner: Finished scan. Scanning for video info took %s", StringUtils::SecondsToTimeString(tick / 1000).c_str());
     }
-    catch (...)
+    database.Close();
+
+    for (std::list<std::string>::const_iterator it = movieFolders.begin(); it != movieFolders.end(); ++it)
     {
-      CLog::Log(LOGERROR, "VideoInfoScanner: Exception while scanning.");
+      SlowScan(*it);
     }
     
     m_bRunning = false;
@@ -2070,5 +2111,4 @@ namespace VIDEO
     }
     return strDirectory;
   }
-
 }

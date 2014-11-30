@@ -125,6 +125,9 @@ namespace VIDEO
 
   protected:
     virtual void Process();
+
+  private:
+    void SlowScan(const std::string& root);
     bool DoScan(const CStdString& strDirectory);
     bool IsExcluded(const CStdString& strDirectory) const;
 
