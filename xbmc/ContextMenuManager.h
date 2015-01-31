@@ -48,7 +48,7 @@ public:
    \param item - the currently selected item
    \param out visible - appends all visible menu items to this list
    */
-  void AppendVisibleContextItems(const CFileItemPtr item, CContextButtons& list, const std::string& parent = "");
+  void AppendVisibleContextItems(const CFileItemPtr& item, CContextButtons& list, const std::string& parent = "");
 
   /*!
    \brief Adds a context item to this manager.
@@ -57,14 +57,14 @@ public:
    \param the context item to add
    \sa UnegisterContextItem
    */
-  void Register(ADDON::ContextAddonPtr cm);
+  void Register(const ADDON::ContextAddonPtr& cm);
 
   /*!
    \brief Removes a context addon from this manager.
    \param the context item to remove
    \sa RegisterContextItem
    */
-  bool Unregister(ADDON::ContextAddonPtr cm);
+  bool Unregister(const ADDON::ContextAddonPtr& cm);
 
 private:
   CContextMenuManager();

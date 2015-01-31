@@ -113,7 +113,7 @@ void CContextItemAddon::OnEnabled()
   CContextMenuManager::Get().Register(boost::dynamic_pointer_cast<CContextItemAddon>(shared_from_this()));
 }
 
-bool CContextItemAddon::IsVisible(const CFileItemPtr item) const
+bool CContextItemAddon::IsVisible(const CFileItemPtr& item) const
 {
   return m_visCondition->Get(item.get());
 }

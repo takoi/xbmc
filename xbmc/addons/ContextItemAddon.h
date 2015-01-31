@@ -54,7 +54,7 @@ namespace ADDON
      NOTE:  defaults to true, if no visibility expression was set.
      \return true if this item should be visible
      */
-    bool IsVisible(const CFileItemPtr item) const;
+    bool IsVisible(const CFileItemPtr& item) const;
 
     virtual bool OnPreInstall();
     virtual void OnPostInstall(bool restart, bool update);

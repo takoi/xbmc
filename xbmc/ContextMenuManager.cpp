@@ -63,7 +63,7 @@ void CContextMenuManager::Init()
     Register(boost::static_pointer_cast<CContextItemAddon>(*it));
 }
 
-void CContextMenuManager::Register(ContextAddonPtr cm)
+void CContextMenuManager::Register(const ContextAddonPtr& cm)
 {
   ContextAddonIter it = find_if(m_contextAddons.begin(),
                                 m_contextAddons.end(),
@@ -75,7 +75,7 @@ void CContextMenuManager::Register(ContextAddonPtr cm)
     m_contextAddons[m_iCurrentContextId++] = cm;
 }
 
-bool CContextMenuManager::Unregister(ContextAddonPtr cm)
+bool CContextMenuManager::Unregister(const ContextAddonPtr& cm)
 {
   ContextAddonIter it = find_if(m_contextAddons.begin(),
                                 m_contextAddons.end(),
@@ -98,7 +98,7 @@ ContextAddonPtr CContextMenuManager::GetContextItemByID(unsigned int id)
   return ContextAddonPtr();
 }
 
-void CContextMenuManager::AppendVisibleContextItems(const CFileItemPtr item, CContextButtons& list, const std::string& parent)
+void CContextMenuManager::AppendVisibleContextItems(const CFileItemPtr& item, CContextButtons& list, const std::string& parent)
 {
   for (ContextAddonIter it = m_contextAddons.begin(); it != m_contextAddons.end(); ++it)
   {
