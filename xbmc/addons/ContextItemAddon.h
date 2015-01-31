@@ -45,14 +45,17 @@ namespace ADDON
     virtual ~CContextItemAddon();
 
     const std::string& GetLabel() const { return m_label; }
-    /*! \brief returns the parent category of this context item
-        \return empty string if at root level or MANAGE_CATEGORY_NAME when it should be in the 'manage' submenu
-             or the id of a ContextCategoryItem
+
+    /*!
+     * \brief Get the parent category of this context item.
+     *
+     * \details Returns empty string if at root level or
+     * CONTEXT_MENU_GROUP_MANAGE when it should be in the 'manage' submenu.
      */
     const std::string& GetParent() const { return m_parent; }
-    /*! \brief returns true if this item should be visible.
-     NOTE:  defaults to true, if no visibility expression was set.
-     \return true if this item should be visible
+
+    /*!
+     * \brief Returns true if this contex menu should be visible for given item.
      */
     bool IsVisible(const CFileItemPtr& item) const;
 

@@ -29,40 +29,31 @@ class CContextMenuManager
 public:
   static CContextMenuManager& Get();
 
-  /*! Get a context menu item by its assigned message id.
-   \param unsigned int - msg id of the context item
-   \return the addon or NULL
-   */
-  ADDON::ContextAddonPtr GetContextItemByID(const unsigned int ID);
-
-  /*! Executes the context menu item
-   \param id - id of the context button to execute
-   \param item - the currently selected item
-   \return false if execution failed, aborted or isVisible() returned false
+  /*!
+   * \brief Executes a context menu item.
+   * \param id - id of the context button to execute.
+   * \param item - the currently selected item.
+   * \return true if executed successfully, false otherwise
    */
   bool Execute(unsigned int id, const CFileItemPtr& item);
 
   /*!
-   Adds all registered context item to the list
-   \param context - the current window id
-   \param item - the currently selected item
-   \param out visible - appends all visible menu items to this list
+   * \brief Adds all registered context item to the list.
+   * \param item - the currently selected item.
+   * \param list - the context menu.
+   * \param parent - the ID of the context menu. Empty string if the root menu.
+   * CONTEXT_MENU_GROUP_MANAGE if the 'manage' submenu.
    */
   void AppendVisibleContextItems(const CFileItemPtr& item, CContextButtons& list, const std::string& parent = "");
 
   /*!
-   \brief Adds a context item to this manager.
-   NOTE: if a context item has changed, just register it again and it will overwrite the old one
-   NOTE: only 'enabled' context addons should be added
-   \param the context item to add
-   \sa UnegisterContextItem
+   * \brief Adds a context item to this manager.
+   * NOTE: only 'enabled' context addons should be added.
    */
   void Register(const ADDON::ContextAddonPtr& cm);
 
   /*!
    \brief Removes a context addon from this manager.
-   \param the context item to remove
-   \sa RegisterContextItem
    */
   bool Unregister(const ADDON::ContextAddonPtr& cm);
 
@@ -71,7 +62,15 @@ private:
   CContextMenuManager(const CContextMenuManager&);
   CContextMenuManager const& operator=(CContextMenuManager const&);
   virtual ~CContextMenuManager() {};
+
   void Init();
+
+  /*!
+   * \brief Get a context menu item by its assigned id.
+   * \param id - the button id of the context item.
+   * \return the addon or NULL if no item with given id is registered.
+   */
+  ADDON::ContextAddonPtr GetContextItemByID(const unsigned int id);
 
   std::map<unsigned int, ADDON::ContextAddonPtr> m_contextAddons;
   unsigned int m_iCurrentContextId;
