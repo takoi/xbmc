@@ -119,11 +119,14 @@ void doMethod(Node method, MethodType methodType)
   boolean isOperator = method.@name.startsWith("operator ")
   boolean doAsMappingIndex = false
   boolean doAsSequence = false
+  boolean doAsCallable = false
 
   if (isOperator)
   {
     if("[]" == method.@name.substring(9))
       doAsMappingIndex = true
+    else if("()" == method.@name.substring(9))
+      doAsCallable = true
     else
       return;
   }
@@ -379,6 +382,7 @@ void doClassMethodInfo(Node clazz, List initTypeCalls)
   boolean hasGtOp = false
   Node indexOp = null
   boolean indexOpSupportsSet = false
+  Node callableOp = null
   Node sizeNode = null
 
   List normalMethods = clazz.function.findAll { !it.@name.startsWith("operator ") && (!doAsSequence || it.@name != clazz.@feature_sequence) && it.@name != "toString" }
@@ -402,6 +406,8 @@ void doClassMethodInfo(Node clazz, List initTypeCalls)
       if (it.@decl != null && it.@decl.endsWith('.r.'))
         indexOpSupportsSet = true
     }
+    else if (it.@name.substring(9) == "()")
+      callableOp = it
     else
       System.err.println ("Warning: class ${fullClassName} has an operator \"${it.@name}\" that is being ignored.");
   }
@@ -712,6 +718,10 @@ void doClassMethodInfo(Node clazz, List initTypeCalls)
     pythonType.tp_methods = ${classNameAsVariable}_methods; <%
  if (properties.size() > 0) { %>
     pythonType.tp_getset = ${classNameAsVariable}_getsets;
+<%
+ }
+ if (callableOp) { %>
+    pythonType.tp_call = (ternaryfunc)${module.@name}_${PythonTools.getPyMethodName(callableOp,MethodType.method)};
 <%
  }
  if (stringifyMethods.size() == 1) { %>
