@@ -111,8 +111,9 @@ bool CHTTPPythonHandler::CanHandleRequest(const HTTPRequest &request)
   if (URIUtils::PathEquals(path, addon->Path(), true))
     return true;
 
-  // we only handle python scripts
-  if (!StringUtils::EqualsNoCase(URIUtils::GetExtension(path), ".py"))
+  // WSGI addons cannot load different files and otherwise we only handle python scripts
+  if (webinterface->GetType() == ADDON::WebinterfaceTypeWsgi ||
+      !StringUtils::EqualsNoCase(URIUtils::GetExtension(path), ".py"))
     return false;
 
   return true;
