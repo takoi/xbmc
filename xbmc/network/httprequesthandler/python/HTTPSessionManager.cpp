@@ -20,6 +20,7 @@
 
 #include <time.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 
 #include "HTTPSessionManager.h"
 #include "interfaces/legacy/mod_python/HttpRequest.h"
@@ -71,7 +72,8 @@ std::string CHTTPSessionManager::GenerateSessionId(XBMCAddon::xbmcmod_python::Ht
   CSingleLock lock(m_critSection);
   do
   {
-    std::string temp = StringUtils::Format("%d%d%d%s", time(NULL) * (10000 + count), rand(), rand(), inet_ntoa(static_cast<struct sockaddr_in*>(ipInfo->client_addr)->sin_addr));
+    std::string temp = StringUtils::Format("%d%d%d%s", time(NULL) * (10000 + count), rand(), rand(),
+                                           inet_ntoa(((struct sockaddr_in*)ipInfo->client_addr)->sin_addr));
     sessionId = XBMC::XBMC_MD5::GetMD5(temp);
 
     count += 1;

@@ -2568,7 +2568,8 @@ fi
 
 OUTPUT_FILES="$OUTPUT_FILES \
   xbmc/interfaces/python/Makefile \
-  xbmc/interfaces/python/test/Makefile"
+  xbmc/interfaces/python/test/Makefile \
+  xbmc/interfaces/legacy/mod_python/Makefile"
 
 # Line below is used so we can use AM_INIT_AUTOMAKE. The corresponding
 # .dummy.am does nothing.

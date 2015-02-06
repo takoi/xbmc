@@ -1,0 +1,10 @@
+SRCS = Cookie.cpp \
+       HttpRequest.cpp \
+       Session.cpp \
+
+LIB=legacy-mod_python.a
+
+INCLUDES += @PYTHON_CPPFLAGS@
+
+include @abs_top_srcdir@/Makefile.include
+-include $(patsubst %.cpp,%.P,$(patsubst %.c,%.P,$(SRCS)))
