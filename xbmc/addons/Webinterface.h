@@ -28,7 +28,8 @@ namespace ADDON
   typedef enum WebinterfaceType
   {
     WebinterfaceTypeStatic = 0,
-    WebinterfaceTypeModPython
+    WebinterfaceTypeModPython,
+    WebinterfaceTypeWsgi
   } WebinterfaceType;
 
   class CWebinterface : public CAddon

@@ -41,6 +41,8 @@ CWebinterface::CWebinterface(const cp_extension_t *ext)
   std::string webinterfaceType = CAddonMgr::Get().GetExtValue(ext->configuration, "@type");
   if (StringUtils::EqualsNoCase(webinterfaceType.c_str(), "mod_python"))
     m_type = WebinterfaceTypeModPython;
+  else if (StringUtils::EqualsNoCase(webinterfaceType.c_str(), "wsgi"))
+    m_type = WebinterfaceTypeWsgi;
   else if (!webinterfaceType.empty() && !StringUtils::EqualsNoCase(webinterfaceType.c_str(), "static") && !StringUtils::EqualsNoCase(webinterfaceType.c_str(), "html"))
     CLog::Log(LOGWARNING, "Webinterface addon \"%s\" has specified an unsupported type \"%s\"", ID().c_str(), webinterfaceType.c_str());
 
@@ -55,6 +57,9 @@ CWebinterface::~CWebinterface()
 
 std::string CWebinterface::GetEntryPoint(const std::string &path) const
 {
+  if (m_type == WebinterfaceTypeWsgi)
+    return LibPath();
+
   return URIUtils::AddFileToFolder(path, m_entryPoint);
 }
 

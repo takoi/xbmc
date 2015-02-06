@@ -20,6 +20,7 @@
       <xs:enumeration value="static"/>
       <xs:enumeration value="html"/>
       <xs:enumeration value="mod_python"/>
+      <xs:enumeration value="wsgi"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
