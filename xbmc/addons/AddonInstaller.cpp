@@ -46,6 +46,9 @@ using namespace std;
 using namespace XFILE;
 using namespace ADDON;
 
+const auto UPDATE_INTERVAL = CDateTimeSpan(0,24,0,0);
+const auto UPDATE_INTERVAL_FAILED = CDateTimeSpan(0,0,10,0);
+
 
 struct find_map : public binary_function<CAddonInstaller::JobMap::value_type, unsigned int, bool>
 {
@@ -55,9 +58,8 @@ struct find_map : public binary_function<CAddonInstaller::JobMap::value_type, un
   }
 };
 
-CAddonInstaller::CAddonInstaller()
+CAddonInstaller::CAddonInstaller() : m_repoUpdateJobs(0), m_timer(this)
 {
-  m_repoUpdateJob = 0;
 }
 
 CAddonInstaller::~CAddonInstaller()
@@ -76,11 +78,20 @@ void CAddonInstaller::OnJobComplete(unsigned int jobID, bool success, CJob* job)
     CAddonMgr::Get().FindAddons();
 
   CSingleLock lock(m_critSection);
+
   if (strncmp(job->GetType(), "repoupdate", 10) == 0)
-  { // repo job finished
-    m_repoUpdateDone.Set();
-    m_repoUpdateJob = 0;
-    lock.Leave();
+  {
+    --m_repoUpdateJobs;
+    CLog::Log(LOGDEBUG, "[repoupdater] CAddonInstaller::OnJobComplete  success=%d  jobsleft=%d ", success, m_repoUpdateJobs);
+
+    if (m_repoUpdateJobs == 0)
+    {
+      QueueInstalls();
+      m_repoUpdateDone.Set();
+      ScheduleUpdate();
+      lock.Leave();
+    }
+
   }
   else
   { // download job
@@ -376,10 +387,50 @@ CDateTime CAddonInstaller::LastRepoUpdate() const
   return update;
 }
 
+
+void CAddonInstaller::ScheduleUpdate()
+{
+  CSingleLock lock(m_critSection);
+
+  const bool firstRun = !m_timer.IsRunning();
+  const auto eps = CDateTimeSpan(0,0,0,10); //No idea how accurate the various times are so just to be sure
+
+  m_timer.Stop(true);
+
+  VECADDONS repos;
+  if (!CAddonMgr::Get().GetAddons(ADDON_REPOSITORY, repos))
+    return; //Don't schedule any update. We will be notified again when a repo is added
+
+  CDateTime prevUpdate;
+  {
+    CAddonDatabase database;
+    database.Open();
+    std::vector<CDateTime> updateTimes;
+    std::transform(repos.begin(), repos.end(), std::back_inserter(updateTimes),
+      [&database](const AddonPtr& repo){ return database.GetRepoTimestamp(repo->ID()); }
+    );
+    prevUpdate =*std::min_element(updateTimes.begin(), updateTimes.end());
+  }
+
+  const CDateTimeSpan sinceLastUpdate = CDateTime::GetCurrentDateTime() - prevUpdate;
+
+  uint32_t timeToNext;
+  if (!prevUpdate.IsValid() || sinceLastUpdate >= UPDATE_INTERVAL + eps)
+    timeToNext = firstRun ? 1 : (UPDATE_INTERVAL_FAILED.GetSecondsTotal() * 1000);
+  else
+    timeToNext = (UPDATE_INTERVAL + eps - sinceLastUpdate).GetSecondsTotal() * 1000;
+  CLog::Log(LOGDEBUG,"[repoupdater] Next update in %u ms", timeToNext);
+
+  if (!m_timer.Start(timeToNext))
+    CLog::Log(LOGERROR,"[repoupdater] Failed to schedule update");
+}
+
+
 void CAddonInstaller::UpdateRepos(bool force, bool wait)
 {
   CSingleLock lock(m_critSection);
-  if (m_repoUpdateJob)
+
+  if (m_repoUpdateJobs > 0)
   {
     if (wait)
     { // wait for our job to complete
@@ -395,26 +446,92 @@ void CAddonInstaller::UpdateRepos(bool force, bool wait)
   if (!force && m_repoUpdateWatch.IsRunning() && m_repoUpdateWatch.GetElapsedSeconds() < 600)
     return;
   m_repoUpdateWatch.StartZero();
-  VECADDONS addons;
-  CAddonMgr::Get().GetAddons(ADDON_REPOSITORY,addons);
-  for (unsigned int i=0;i<addons.size();++i)
+
+  VECADDONS repos;
+  if (CAddonMgr::Get().GetAddons(ADDON_REPOSITORY, repos))
   {
     CAddonDatabase database;
     database.Open();
-    CDateTime lastUpdate = database.GetRepoTimestamp(addons[i]->ID());
-    if (force || !lastUpdate.IsValid() || lastUpdate + CDateTimeSpan(0,24,0,0) < CDateTime::GetCurrentDateTime())
+    for (const AddonPtr& repo : repos)
     {
-      CLog::Log(LOGDEBUG,"Checking repositories for updates (triggered by %s)",addons[i]->Name().c_str());
-      m_repoUpdateJob = CJobManager::GetInstance().AddJob(new CRepositoryUpdateJob(addons), this);
-      if (wait)
-      { // wait for our job to complete
-        lock.Leave();
-        CLog::Log(LOGDEBUG, "%s - waiting for this repository update job to finish...", __FUNCTION__);
-        m_repoUpdateDone.Wait();
+      // Check timestamps and post update job if necessary
+      CDateTime lastUpdate = database.GetRepoTimestamp(repo->ID());
+      if (force || !lastUpdate.IsValid() || lastUpdate + UPDATE_INTERVAL < CDateTime::GetCurrentDateTime())
+      {
+        CLog::Log(LOGDEBUG,"[repoupdater] Checking repository %s for updates", repo->ID().c_str());
+        CJobManager::GetInstance().AddJob(new CRepositoryUpdateJob(
+            std::dynamic_pointer_cast<CRepository>(repo)), this);
+        ++m_repoUpdateJobs;
       }
-      return;
     }
   }
+
+  //if (m_repoUpdateJobs == 0)
+  //  ScheduleUpdate();
+
+  //FIXME: this will deadlock if job isn't processed. Fix the parts relying on
+  //this behaviour to use async version.
+  if (m_repoUpdateJobs > 0 && wait)
+  {
+    lock.Leave();
+    CLog::Log(LOGDEBUG, "%s - waiting for this repository update job to finish...", __FUNCTION__);
+    m_repoUpdateDone.Wait();
+  }
+}
+
+void CAddonInstaller::OnTimeout()
+{
+  CLog::Log(LOGDEBUG,"[repoupdater] Starting scheduled update");
+  UpdateRepos();
+}
+
+
+bool CAddonInstaller::QueueInstalls()
+{
+  CSingleLock lock(m_critSection);
+  VECADDONS addons;
+  if (!CAddonMgr::Get().GetAllOutdatedAddons(addons))
+  {
+    CLog::Log(LOGDEBUG," [repoupdater] No updates");
+    return true;
+  }
+
+  // Queue install jobs
+  if (CSettings::Get().GetInt("general.addonupdates") == AUTO_UPDATES_ON)
+  {
+    for (const auto& addon : addons)
+    {
+      //FIXME: PVR hacks??
+      string referer;
+      if (URIUtils::IsInternetStream(addon->Path()))
+        referer = StringUtils::Format("Referer=%s-%s.zip",addon->ID().c_str(),addon->Version().asString().c_str());
+
+      if (addon->CanInstall(referer))
+        CAddonInstaller::Get().Install(addon->ID(), true, referer, true);
+    }
+  }
+
+  // Show notification
+  if (!addons.empty() && CSettings::Get().GetBool("general.addonnotifications"))
+  {
+    if (addons.size() == 1)
+      CGUIDialogKaiToast::QueueNotification(addons[0]->Icon(),
+                                            g_localizeStrings.Get(24061),
+                                            addons[0]->Name(),TOAST_DISPLAY_TIME,false,TOAST_DISPLAY_TIME);
+    else
+      CGUIDialogKaiToast::QueueNotification("",
+                                            g_localizeStrings.Get(24001),
+                                            g_localizeStrings.Get(24061),TOAST_DISPLAY_TIME,false,TOAST_DISPLAY_TIME);
+  }
+}
+
+
+void CAddonInstaller::Init()
+{
+  if (m_timer.IsRunning())
+    return;
+
+  ScheduleUpdate();
 }
 
 bool CAddonInstaller::HasJob(const std::string& ID) const

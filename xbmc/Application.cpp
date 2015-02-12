@@ -1307,6 +1307,8 @@ bool CApplication::Initialize()
 
   CAddonMgr::Get().StartServices(true);
 
+  //CAddonInstaller::Get().Init();
+
   // register action listeners
   RegisterActionListener(&CSeekHandler::Get());
 

@@ -23,6 +23,7 @@
 #include "addons/Addon.h"
 #include "utils/Stopwatch.h"
 #include "threads/Event.h"
+#include "threads/Timer.h"
 
 class CAddonDatabase;
 
@@ -33,11 +34,13 @@ enum {
   AUTO_UPDATES_MAX
 };
 
-class CAddonInstaller : public IJobCallback
+class CAddonInstaller : public IJobCallback, protected ITimerCallback
 {
 public:
   static CAddonInstaller &Get();
 
+  void Init();
+  void ScheduleUpdate();
   bool IsDownloading() const;
   void GetInstallList(ADDON::VECADDONS &addons) const;
   bool GetProgress(const std::string &addonID, unsigned int &percent) const;
@@ -142,14 +145,18 @@ private:
   bool CheckDependencies(const ADDON::AddonPtr &addon,
                          std::vector<std::string>& preDeps, CAddonDatabase &database);
 
+  bool QueueInstalls();
+  void OnTimeout();
+
   void PrunePackageCache();
   int64_t EnumeratePackageFolder(std::map<std::string,CFileItemList*>& result);
 
   CCriticalSection m_critSection;
   JobMap m_downloadJobs;
   CStopWatch m_repoUpdateWatch;   ///< repository updates are done based on this counter
-  unsigned int m_repoUpdateJob;   ///< the job ID of the repository updates
+  unsigned int m_repoUpdateJobs;  ///< number of remaining repository update jobs
   CEvent m_repoUpdateDone;        ///< event set when the repository updates are complete
+  CTimer m_timer;
 };
 
 class CAddonInstallJob : public CFileOperationJob
@@ -203,3 +210,4 @@ private:
 
   ADDON::AddonPtr m_addon;
 };
+
