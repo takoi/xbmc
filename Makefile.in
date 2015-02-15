@@ -111,6 +111,7 @@ endif
 
 DIRECTORY_ARCHIVES += xbmc/interfaces/legacy/legacy.a
 DIRECTORY_ARCHIVES += xbmc/interfaces/legacy/mod_python/legacy-mod_python.a
+DIRECTORY_ARCHIVES += xbmc/interfaces/legacy/wsgi/legacy-wsgi.a
 DIRECTORY_ARCHIVES += xbmc/interfaces/python/python_binding.a
 
 ifeq (@USE_OPENGL@,1)

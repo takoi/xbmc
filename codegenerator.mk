@@ -35,6 +35,7 @@ GENERATED += $(GENDIR)/AddonModuleXbmcmod_python.cpp
 GENERATED += $(GENDIR)/AddonModuleXbmcplugin.cpp
 GENERATED += $(GENDIR)/AddonModuleXbmcaddon.cpp
 GENERATED += $(GENDIR)/AddonModuleXbmcvfs.cpp
+GENERATED += $(GENDIR)/AddonModuleXbmcwsgi.cpp
 
 GENERATE_DEPS += $(TOPDIR)/xbmc/interfaces/legacy/*.h $(TOPDIR)/xbmc/interfaces/python/typemaps/*.intm $(TOPDIR)/xbmc/interfaces/python/typemaps/*.outtm
 
