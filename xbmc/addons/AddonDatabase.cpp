@@ -147,7 +147,7 @@ int CAddonDatabase::AddAddon(const AddonPtr& addon,
   return -1;
 }
 
-AddonVersion CAddonDatabase::GetAddonVersion(const std::string &id)
+AddonVersion CAddonDatabase::GetAddonVersion(const std::string &id) const
 {
   AddonVersion maxversion("0.0.0");
   try
