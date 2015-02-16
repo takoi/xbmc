@@ -271,20 +271,21 @@ void CHTTPPythonWsgiInvoker::executeScript(void *fp, const std::string &script, 
     m_wsgiResponse->Append(result);
   }
 
-  // Call optional close method on iterator
-  if (PyObject_HasAttrString(pyResultIterator, (char*)"close") == 1)
-  {
-    if (PyObject_CallMethod(pyResultIterator, (char*)"close", NULL) == NULL)
-    {
-      CLog::Log(LOGERROR, "CHTTPPythonWsgiInvoker: failed close iterator object for WSGI script \"%s\"", script.c_str());
-    }
-  }
-
 cleanup:
   if (pyIterResult != NULL)
     Py_DECREF(pyIterResult);
   if (pyResultIterator != NULL)
+  {
+    // Call optional close method on iterator
+    if (PyObject_HasAttrString(pyResultIterator, (char*)"close") == 1)
+    {
+      if (PyObject_CallMethod(pyResultIterator, (char*)"close", NULL) == NULL)
+      {
+        CLog::Log(LOGERROR, "CHTTPPythonWsgiInvoker: failed to close iterator object for WSGI script \"%s\"", script.c_str());
+      }
+    }
     Py_DECREF(pyResultIterator);
+  }
   if (pyResult != NULL)
     Py_DECREF(pyResult);
   if (pyEntryPoint != NULL)
