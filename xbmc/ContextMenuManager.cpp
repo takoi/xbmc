@@ -26,6 +26,8 @@
 #include "addons/IAddon.h"
 #include "video/dialogs/GUIDialogVideoInfo.h"
 #include "interfaces/generic/ScriptInvocationManager.h"
+#include "interfaces/python/ContextItemAddonInvoker.h"
+#include "interfaces/python/XBPython.h"
 #include "utils/log.h"
 
 using namespace ADDON;
@@ -107,7 +109,8 @@ bool CContextMenuManager::Execute(unsigned int id, const CFileItemPtr& item)
   const ContextAddonPtr addon = GetContextItemByID(id);
   if (!item || !addon || !addon->IsVisible(item))
     return false;
-  return (CScriptInvocationManager::Get().Execute(
-      addon->LibPath(), addon, vector<string>(), item) != -1);
+
+  LanguageInvokerPtr invoker(new CContextItemAddonInvoker(&g_pythonParser, item));
+  return (CScriptInvocationManager::Get().ExecuteAsync(addon->LibPath(), invoker, addon) != -1);
 }
 
