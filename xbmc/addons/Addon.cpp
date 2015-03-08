@@ -20,6 +20,8 @@
 
 #include "Addon.h"
 #include "AddonManager.h"
+#include "addons/Service.h"
+#include "ContextMenuManager.h"
 #include "settings/Settings.h"
 #include "filesystem/Directory.h"
 #include "filesystem/File.h"
@@ -616,6 +618,32 @@ AddonVersion CAddon::GetDependencyVersion(const std::string &dependencyID) const
   if (it != deps.end())
     return it->second.first;
   return AddonVersion("0.0.0");
+}
+
+void OnEnabled(const std::string& id)
+{
+  AddonPtr addon;
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_SERVICE))
+    std::static_pointer_cast<CService>(addon)->Start();
+
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_CONTEXT_ITEM))
+    CContextMenuManager::Get().Register(std::static_pointer_cast<CContextItemAddon>(addon));
+
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_UNKNOWN))
+    addon->OnEnabled();
+}
+
+void OnDisabled(const std::string& id)
+{
+  AddonPtr addon;
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_SERVICE, false))
+    std::static_pointer_cast<CService>(addon)->Stop();
+
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_CONTEXT_ITEM, false))
+    CContextMenuManager::Get().Unregister(std::static_pointer_cast<CContextItemAddon>(addon));
+
+  if (CAddonMgr::Get().GetAddon(id, addon, ADDON_UNKNOWN, false))
+    addon->OnDisabled();
 }
 
 /**
