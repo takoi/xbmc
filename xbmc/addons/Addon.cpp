@@ -20,6 +20,7 @@
 
 #include "Addon.h"
 #include "AddonManager.h"
+#include "addons/Repository.h"
 #include "addons/Service.h"
 #include "ContextMenuManager.h"
 #include "settings/Settings.h"
@@ -645,6 +646,53 @@ void OnDisabled(const std::string& id)
   if (CAddonMgr::Get().GetAddon(id, addon, ADDON_UNKNOWN, false))
     addon->OnDisabled();
 }
+
+void OnPreInstall(const AddonPtr& addon)
+{
+  //Before installing we need to stop/unregister all local services/context items
+  //that have this addon id.
+  AddonPtr localAddon;
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_SERVICE))
+    std::static_pointer_cast<CService>(localAddon)->Stop();
+
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_CONTEXT_ITEM))
+    CContextMenuManager::Get().Unregister(std::static_pointer_cast<CContextItemAddon>(localAddon));
+
+  //Fallback to the pre-install callback in the addon.
+  //BUG: If primary extension point have changed we're calling the wrong method.
+  addon->OnPreInstall();
+}
+
+void OnPostInstall(const AddonPtr& addon, bool update, bool modal)
+{
+  AddonPtr localAddon;
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_SERVICE))
+    std::static_pointer_cast<CService>(localAddon)->Start();
+
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_CONTEXT_ITEM))
+    CContextMenuManager::Get().Register(std::static_pointer_cast<CContextItemAddon>(localAddon));
+
+  //BUG: might be the wrong method
+  addon->OnPostInstall(update, modal);
+}
+
+void OnPreUnInstall(const AddonPtr& addon)
+{
+  AddonPtr localAddon;
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_SERVICE))
+    std::static_pointer_cast<CService>(localAddon)->Stop();
+
+  if (CAddonMgr::Get().GetAddon(addon->ID(), localAddon, ADDON_CONTEXT_ITEM))
+    CContextMenuManager::Get().Unregister(std::static_pointer_cast<CContextItemAddon>(localAddon));
+
+  addon->OnPreUnInstall();
+}
+
+void OnPostUnInstall(const AddonPtr& addon)
+{
+  addon->OnPostUnInstall();
+}
+
 
 /**
  * CAddonLibrary
