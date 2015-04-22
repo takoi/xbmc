@@ -208,7 +208,7 @@ bool CDirectory::GetDirectory(const CURL& url, CFileItemList &items, const CHint
         {
           if (!cancel && g_application.IsCurrentThread() && pDirectory->ProcessRequirements())
             continue;
-          CLog::Log(LOGERROR, "%s - Error getting %s", __FUNCTION__, url.GetRedacted().c_str());
+          CLog::Log(LOGDEBUG, "%s - Error getting %s", __FUNCTION__, url.GetRedacted().c_str());
           return false;
         }
       }
