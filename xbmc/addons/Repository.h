@@ -21,6 +21,8 @@
 
 #include "Addon.h"
 #include "utils/Job.h"
+#include "interfaces/python/AddonRepoInvoker.h"
+
 
 namespace ADDON
 {
@@ -39,6 +41,8 @@ namespace ADDON
      \return the md5 hash for the given addon, empty if non exists.
      */
     std::string GetAddonHash(const AddonPtr& addon) const;
+
+    const std::string& GetEntryPoint() const { return m_entryPoint; }
 
     struct DirInfo
     {
@@ -61,8 +65,12 @@ namespace ADDON
     virtual void OnPostInstall(bool restart, bool update, bool modal);
     virtual void OnPostUnInstall();
 
+    std::unique_ptr<CAddonRepoInvoker> m_invoker;
+    int m_apiVersion;
+
   private:
     CRepository(const CRepository &rhs);
+    std::string m_entryPoint;
   };
 
   class CRepositoryUpdateJob : public CJob

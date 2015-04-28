@@ -36,6 +36,11 @@
 #include "TextureDatabase.h"
 #include "URL.h"
 
+#include "interfaces/generic/ScriptInvocationManager.h"
+#include "interfaces/python/XBPython.h"
+#include "interfaces/python/AddonRepoInvoker.h"
+
+
 using namespace std;
 using namespace XFILE;
 using namespace ADDON;
@@ -92,6 +97,10 @@ CRepository::CRepository(const cp_extension_t *ext)
       info.hashes     = CAddonMgr::Get().GetExtValue(ext->configuration, "hashes") == "true";
       m_dirs.push_back(info);
     }
+
+    m_entryPoint = CAddonMgr::Get().GetExtValue(ext->configuration, "@entry");
+    m_apiVersion = m_entryPoint.empty() ? 1 : 2;
+    m_invoker = std::unique_ptr<CAddonRepoInvoker>(new CAddonRepoInvoker(&g_pythonParser));
   }
 }
 
@@ -336,42 +345,61 @@ bool CRepositoryUpdateJob::GrabAddons(const RepositoryPtr& repo, VECADDONS& addo
   if (!database.GetRepoChecksum(repo->ID(), oldReposum))
     oldReposum = "";
 
+
   string reposum;
-  for (CRepository::DirList::const_iterator it  = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
+  if (repo->m_apiVersion >= 2)
   {
-    if (ShouldCancel(0, 0))
-      return false;
-    if (!it->checksum.empty())
+    CLog::Log(LOGDEBUG, "CRepositoryUpdateJob: getting checsum using api v2");
+    //hack
+    repo->m_invoker->SetAddon(repo);
+    reposum = repo->m_invoker->GetChecksum();
+  }
+  else
+  {
+    for (CRepository::DirList::const_iterator it  = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
     {
-      const string dirsum = CRepository::FetchChecksum(it->checksum);
-      if (dirsum.empty())
-      {
-        CLog::Log(LOGERROR, "Failed to fetch checksum for directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
+      if (ShouldCancel(0, 0))
         return false;
+      if (!it->checksum.empty())
+      {
+        const string dirsum = CRepository::FetchChecksum(it->checksum);
+        if (dirsum.empty())
+        {
+          CLog::Log(LOGERROR, "Failed to fetch checksum for directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
+          return false;
+        }
+        reposum += dirsum;
       }
-      reposum += dirsum;
     }
   }
 
   if (oldReposum != reposum || oldReposum.empty())
   {
     map<string, AddonPtr> uniqueAddons;
-    for (CRepository::DirList::const_iterator it = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
+    if (repo->m_apiVersion >= 2)
     {
-      if (ShouldCancel(0, 0))
-        return false;
-      VECADDONS addons;
-      if (!CRepository::Parse(*it, addons))
-      { //TODO: Hash is invalid and should not be saved, but should we fail?
-        //We can still report a partial addon listing.
-        CLog::Log(LOGERROR, "Failed to read directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
-        return false;
+      repo->m_invoker->SetAddon(repo);
+      MergeAddons(uniqueAddons, repo->m_invoker->GetAddons());
+    }
+    else
+    {
+      for (CRepository::DirList::const_iterator it = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
+      {
+        if (ShouldCancel(0, 0))
+          return false;
+        VECADDONS addons;
+        if (!CRepository::Parse(*it, addons))
+        { //TODO: Hash is invalid and should not be saved, but should we fail?
+          //We can still report a partial addon listing.
+          CLog::Log(LOGERROR, "Failed to read directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
+          return false;
+        }
+        MergeAddons(uniqueAddons, addons);
       }
-      MergeAddons(uniqueAddons, addons);
     }
 
     bool add = true;
-    if (!repo->Props().libname.empty())
+    if (repo->m_apiVersion < 2 && !repo->Props().libname.empty())
     {
       CFileItemList dummy;
       string s = StringUtils::Format("plugin://%s/?action=update", repo->ID().c_str());
