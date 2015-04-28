@@ -140,5 +140,20 @@ namespace XBMCAddon
       else
         throw AddonException("'%s' is an invalid Id", id);
     }
+
+    AddonProps::AddonProps(const String& id,
+                  const String& name,
+                  const String& version,
+                  const String& addonType)
+    {
+      this->id = id;
+      this->name = name;
+      this->version = version;
+      this->addonType = addonType;
+    }
+
+    AddonProps::~AddonProps()
+    {
+    }
   }
 }

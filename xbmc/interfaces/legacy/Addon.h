@@ -22,6 +22,7 @@
 
 #include "swighelper.h"
 #include "addons/IAddon.h"
+#include "addons/Addon.h"
 
 #include "AddonString.h"
 #include "AddonClass.h"
@@ -129,6 +130,22 @@ namespace XBMCAddon
        *   - version = self.Addon.getAddonInfo('version')
        */
       String getAddonInfo(const char* id);
+    };
+
+
+    class AddonProps : public AddonClass
+    {
+    public:
+      AddonProps(const String& id,
+                 const String& name,
+                 const String& version,
+                 const String& addonType);
+      virtual ~AddonProps();
+
+      std::string id;
+      std::string name;
+      std::string version;
+      std::string addonType;
     };
   }
 }
