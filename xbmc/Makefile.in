@@ -31,6 +31,7 @@ SRCS=Application.cpp \
      ThumbLoader.cpp \
      ThumbnailCache.cpp \
      URL.cpp \
+     URLResolver.cpp \
      Util.cpp \
      XBApplicationEx.cpp \
      XBDateTime.cpp \

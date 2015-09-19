@@ -227,6 +227,7 @@
 #include "utils/CharsetConverter.h"
 #include "pictures/GUIWindowSlideShow.h"
 #include "windows/GUIWindowLoginScreen.h"
+#include "URLResolver.h"
 
 using namespace ADDON;
 using namespace XFILE;
@@ -3365,6 +3366,22 @@ PlayBackRet CApplication::PlayFile(const CFileItem& item, bool bRestart)
     return PLAYBACK_FAIL;
   }
 #endif
+
+
+  //TODO: currently we try to playback anything http as a file (see
+  //DVDFactoryInputStream), so this will probably break some edge cases.
+  //Should find a better way do distinguish which can be played by core and
+  //which needs resolving.
+  //Before we can check repository for resolvers we need to know it cannot be played.
+  if (item.IsInternetStream() && (!item.IsVideo() || item.IsAudio()))
+  {
+    auto resolver = std::unique_ptr<CURLResolver>(new CURLResolver());
+    CFileItem newItem(item);
+    if (resolver->Resolve(item.GetPath(), newItem))
+    {
+      return PlayFile(newItem, false);
+    }
+  }
 
   // if we have a stacked set of files, we need to setup our stack routines for
   // "seamless" seeking and total time of the movie etc.

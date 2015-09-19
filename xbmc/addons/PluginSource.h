@@ -20,6 +20,7 @@
 #pragma once
 
 #include "Addon.h"
+#include "utils/RegExp.h"
 
 namespace ADDON
 {
@@ -45,6 +46,8 @@ public:
   {
     return m_providedContent.size() > 1;
   }
+
+  std::string m_resolverRegex;
 
   static Content Translate(const std::string &content);
 private:

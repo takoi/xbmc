@@ -45,6 +45,9 @@ CPluginSource::CPluginSource(const cp_extension_t *ext)
       Props().extrainfo.insert(make_pair("provides", provides));
   }
   SetProvides(provides);
+
+  //TODO: move to separate addon
+  m_resolverRegex = CAddonMgr::GetInstance().GetExtValue(ext->configuration, "regex");
 }
 
 AddonPtr CPluginSource::Clone() const
