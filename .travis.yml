@@ -21,18 +21,19 @@ language: generic
 # python:
 #  - "2.7"
 
-# Define the build matrix
-#
 # Travis defaults to building on Ubuntu Precise when building on Linux. We need Trusty in order to get up
 # to date versions of cmake and g++.
-#
+dist: trusty
+sudo: required
+os: linux
+compiler: gcc
+
+env:
+  - SCRIPT="make testsuite && ./kodi-test"
+
 matrix:
   fast_finish: true
-  include:
-    - os: linux
-      dist: trusty    
-      sudo: required
-      compiler: gcc
+
 
 # Prepare system
 #
@@ -81,7 +82,7 @@ before_script:
 
 # Actually build
 #
-script: make -j3
+script: eval $SCRIPT
 
 # Disable annoying emails
 #
