@@ -58,6 +58,8 @@ IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CFileItem& i
   if (strExtension.empty())
     return NULL;
 
+  CLog::Log(LOGDEBUG, "CMusicInfoTagLoaderFactory::CreateLoader");
+
   VECADDONS codecs;
   CAddonMgr::GetInstance().GetAddons(codecs, ADDON_AUDIODECODER);
   for (size_t i=0;i<codecs.size();++i)

@@ -45,6 +45,7 @@
 #include "URL.h"
 #include "addons/AddonManager.h"
 #include "addons/AudioDecoder.h"
+#include <signal.h>
 
 using namespace ADDON;
 using namespace XFILE;
@@ -56,11 +57,24 @@ CFileDirectoryFactory::CFileDirectoryFactory(void)
 CFileDirectoryFactory::~CFileDirectoryFactory(void)
 {}
 
+int i = 0;
+
 // return NULL + set pItem->m_bIsFolder to remove it completely from list.
 IFileDirectory* CFileDirectoryFactory::Create(const CURL& url, CFileItem* pItem, const std::string& strMask)
 {
   if (url.IsProtocol("stack")) // disqualify stack as we need to work with each of the parts instead
     return NULL;
+
+  CLog::Log(LOGDEBUG, "CFileDirectoryFactory::Create(%s)", url.Get().c_str());
+
+  if (url.Get() == "/mnt/runtime/write/emulated")
+  {
+    ++i;
+    if (i >= 400)
+    {
+       raise(SIGSEGV);
+    }
+  }
 
   std::string strExtension=URIUtils::GetExtension(url);
   StringUtils::ToLower(strExtension);

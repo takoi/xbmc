@@ -1353,6 +1353,7 @@ void CAdvancedSettings::setExtraLogLevel(const std::vector<CVariant> &components
 
 std::string CAdvancedSettings::GetMusicExtensions() const
 {
+  CLog::Log(LOGDEBUG, "CAdvancedSettings::GetMusicExtensions");
   std::string result(m_musicExtensions);
 
   VECADDONS codecs;

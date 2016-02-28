@@ -30,6 +30,8 @@ using namespace ADDON;
 
 ICodec* CodecFactory::CreateCodec(const std::string &strFileType)
 {
+  CLog::Log(LOGDEBUG, "CodecFactory::CreateCodec");
+
   std::string fileType = strFileType;
   StringUtils::ToLower(fileType);
   VECADDONS codecs;
@@ -57,6 +59,8 @@ ICodec* CodecFactory::CreateCodecDemux(const std::string& strFile, const std::st
   StringUtils::ToLower(content);
   if (!content.empty())
   {
+    CLog::Log(LOGDEBUG, "CodecFactory::CreateCodecDemux");
+
     VECADDONS codecs;
     CAddonMgr::GetInstance().GetAddons(codecs, ADDON_AUDIODECODER);
     for (size_t i=0;i<codecs.size();++i)

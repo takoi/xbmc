@@ -151,6 +151,8 @@ CAddon::CAddon(AddonProps props)
   m_hasSettings = true;
   m_settingsLoaded = false;
   m_userSettingsLoaded = false;
+
+  CLog::Log(LOGDEBUG, "ADDON::CAddon::CAddon %s", m_props.id.c_str());
 }
 
 bool CAddon::MeetsVersion(const AddonVersion &version) const

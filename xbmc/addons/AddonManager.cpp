@@ -105,6 +105,8 @@ AddonPtr CAddonMgr::Factory(const cp_plugin_info_t* plugin, TYPE type)
 
 AddonPtr CAddonMgr::Factory(const cp_plugin_info_t* plugin, TYPE type, CAddonBuilder& builder)
 {
+  CLog::Log(LOGDEBUG, "ADDON::CAddonMgr::Factory %s", plugin->identifier ? plugin->identifier : "null");
+
   if (!plugin || !plugin->identifier)
     return nullptr;
 
@@ -512,6 +514,8 @@ bool CAddonMgr::GetAddonsInternal(const TYPE &type, VECADDONS &addons, bool enab
   CSingleLock lock(m_critSection);
   if (!m_cp_context)
     return false;
+
+  CLog::Log(LOGDEBUG, "CAddonMgr::GetAddonsInternal %s", TranslateType(type).c_str());
 
   std::vector<CAddonBuilder> builders;
   m_database.GetInstalled(builders);
