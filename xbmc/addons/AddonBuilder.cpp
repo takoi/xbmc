@@ -49,6 +49,8 @@ std::shared_ptr<IAddon> CAddonBuilder::Build()
 
   m_built = true;
 
+  CLog::Log(LOGDEBUG, "ADDON::CAddonBuilder %s", m_props.id.c_str());
+
   if (m_props.type == ADDON_UNKNOWN)
     return std::make_shared<CAddon>(std::move(m_props));
 

@@ -62,6 +62,8 @@ IFileDirectory* CFileDirectoryFactory::Create(const CURL& url, CFileItem* pItem,
   if (url.IsProtocol("stack")) // disqualify stack as we need to work with each of the parts instead
     return NULL;
 
+  CLog::Log(LOGDEBUG, "CFileDirectoryFactory::Create");
+
   std::string strExtension=URIUtils::GetExtension(url);
   StringUtils::ToLower(strExtension);
   VECADDONS codecs;
