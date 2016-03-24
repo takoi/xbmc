@@ -187,7 +187,7 @@ void CAddonDatabase::UpdateTables(int version)
   }
 }
 
-void CAddonDatabase::SyncInstalled(const std::set<std::string>& ids)
+void CAddonDatabase::SyncInstalled(const std::set<std::string>& ids, const std::set<std::string>& enabled)
 {
   try
   {
@@ -217,11 +217,11 @@ void CAddonDatabase::SyncInstalled(const std::set<std::string>& ids)
     std::string now = CDateTime::GetCurrentDateTime().GetAsDBDateTime();
     BeginMultipleExecute();
     for (const auto& id : added)
-      m_pDS->exec(PrepareSQL("INSERT INTO installed(addonID, enabled, installDate) "
-          "VALUES('%s', 0, '%s')", id.c_str(), now.c_str()));
+      ExecuteQuery(PrepareSQL("INSERT INTO installed(addonID, enabled, installDate) "
+          "VALUES('%s', '%d', '%s')", id.c_str(), enabled.find(id) != enabled.end() ? 1 : 0, now.c_str()));
 
     for (const auto& id : removed)
-      m_pDS->exec(PrepareSQL("DELETE FROM installed WHERE addonID='%s'", id.c_str()));
+      ExecuteQuery(PrepareSQL("DELETE FROM installed WHERE addonID='%s'", id.c_str()));
     CommitMultipleExecute();
   }
   catch (...)
