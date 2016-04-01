@@ -19,6 +19,7 @@
  *
  */
 
+#include <atomic>
 #include <memory>
 #include <vector>
 
@@ -171,9 +172,9 @@ namespace PERIPHERALS
 
     std::vector<CPeripheral *> m_peripherals;
     const int                  m_iRescanTime;
-    bool                       m_bInitialised;
-    bool                       m_bIsStarted;
-    bool                       m_bNeedsPolling; /*!< true when this bus needs to be polled for new devices, false when it uses callbacks to notify this bus of changed */
+    std::atomic_bool m_bInitialised;
+    std::atomic_bool m_bIsStarted;
+    std::atomic_bool m_bNeedsPolling; /*!< true when this bus needs to be polled for new devices, false when it uses callbacks to notify this bus of changed */
     CPeripherals *const        m_manager;
     const PeripheralBusType    m_type;
     CCriticalSection           m_critSection;

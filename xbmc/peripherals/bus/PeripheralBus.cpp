@@ -322,5 +322,6 @@ CPeripheral *CPeripheralBus::GetByPath(const std::string &strPath) const
 
 size_t CPeripheralBus::GetNumberOfPeripherals() const
 {
+  CSingleLock lock(m_critSection);
   return m_peripherals.size();
 }
