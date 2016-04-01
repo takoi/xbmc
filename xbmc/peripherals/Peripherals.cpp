@@ -115,16 +115,16 @@ void CPeripherals::Initialise()
 
     /* initialise all known busses and run an initial scan for devices */
     for (auto& bus : m_busses)
-    {
       bus->Initialise();
-      bus->TriggerDeviceScan();
-    }
   }
 
   m_eventScanner.Start();
 
   m_bInitialised = true;
   KODI::MESSAGING::CApplicationMessenger::GetInstance().RegisterReceiver(this);
+
+  lock.Leave();
+  TriggerDeviceScan();
 }
 
 void CPeripherals::Clear()
@@ -165,8 +165,13 @@ void CPeripherals::Clear()
 
 void CPeripherals::TriggerDeviceScan(const PeripheralBusType type /* = PERIPHERAL_BUS_UNKNOWN */)
 {
-  CSingleLock lock(m_critSectionBusses);
-  for (auto& bus : m_busses)
+  std::vector<PeripheralBusPtr> busses;
+  {
+    CSingleLock lock(m_critSectionBusses);
+    busses = m_busses;
+  }
+
+  for (auto& bus : busses)
   {
     bool bScan = false;
 
