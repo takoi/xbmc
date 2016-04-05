@@ -138,49 +138,42 @@ static bool LoadPO(const std::string &filename, std::map<uint32_t, LocStr>& stri
 
 /*! \brief Loads language ids and strings to memory map `strings`.
  * It tries to load a strings.po file first. If doesn't exist, it loads a strings.xml file instead.
- \param pathname The directory name, where we look for the strings file.
+ \param baseDirectory The directory name, where we look for the strings file.
  \param language We load the strings for this language. Fallback language is always English.
  \param strings [out] The resulting strings map.
  \return false if no strings.po or strings.xml file was loaded.
  */
-static bool LoadStr2Mem(const std::string &pathname_in, const std::string &language, std::map<uint32_t, LocStr>& strings)
+static bool Load(const std::string& baseDirectory, const std::string& language, std::map<uint32_t, LocStr>& strings)
 {
-  std::string pathname = CSpecialProtocol::TranslatePathConvertCase(pathname_in + language);
-  if (!XFILE::CDirectory::Exists(pathname))
-  {
-    bool exists = false;
-    std::string lang;
-    // check if there's a language addon using the old language naming convention
-    if (ADDON::CLanguageResource::FindLegacyLanguage(language, lang))
-    {
-      pathname = CSpecialProtocol::TranslatePathConvertCase(pathname_in + lang);
-      exists = XFILE::CDirectory::Exists(pathname);
-    }
+  bool useSourceLang = StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT) ||
+                       StringUtils::EqualsNoCase(language, LANGUAGE_OLD_DEFAULT);
 
-    if (!exists)
-      return false;
-  }
-
-  bool useSourceLang = StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT) || StringUtils::EqualsNoCase(language, LANGUAGE_OLD_DEFAULT);
-  if (LoadPO(URIUtils::AddFileToFolder(pathname, "strings.po"), strings, useSourceLang))
+  std::string file;
+  file = URIUtils::AddFileToFolder(CSpecialProtocol::TranslatePath(baseDirectory + language), "strings.po");
+  if (LoadPO(file, strings, useSourceLang))
     return true;
 
-  return LoadXML(URIUtils::AddFileToFolder(pathname, "strings.xml"), strings);
+  std::string legacyName;
+  if (!ADDON::CLanguageResource::FindLegacyLanguage(language, legacyName))
+    return false;
+
+  file = URIUtils::AddFileToFolder(CSpecialProtocol::TranslatePath(baseDirectory + legacyName), "strings.po");
+  if (LoadPO(file, strings, useSourceLang))
+    return true;
+
+  file = URIUtils::AddFileToFolder(CSpecialProtocol::TranslatePath(baseDirectory + legacyName), "strings.xml");
+  return LoadXML(file, strings);
 }
 
 static bool LoadWithFallback(const std::string& path, const std::string& language, std::map<uint32_t, LocStr>& strings)
 {
-  if (!LoadStr2Mem(path, language, strings))
-  {
-    if (StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT)) // no fallback, nothing to do
-      return false;
-  }
+  if (!URIUtils::HasSlashAtEnd(path))
+    return false;
 
-  // load the fallback
-  if (!StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT))
-    LoadStr2Mem(path, LANGUAGE_DEFAULT, strings);
+  if (StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT))
+    return Load(path, language, strings);
 
-  return true;
+  return Load(path, language, strings) && Load(path, LANGUAGE_DEFAULT, strings);;
 }
 
 CLocalizeStrings::CLocalizeStrings(void)
