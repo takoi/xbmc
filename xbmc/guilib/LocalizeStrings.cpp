@@ -36,13 +36,11 @@
  * It should only be called from the LoadStr2Mem function to try a PO file first.
  \param pathname The directory name, where we look for the strings file.
  \param strings [out] The resulting strings map.
- \param encoding Encoding of the strings.
- \param offset An offset value to place strings from the id value.
  \return false if no strings.xml file was loaded.
  */
-static bool LoadXML(const std::string &filename, std::map<uint32_t, LocStr>& strings,
-    std::string &encoding, uint32_t offset = 0)
+static bool LoadXML(const std::string &filename, std::map<uint32_t, LocStr>& strings)
 {
+  uint32_t offset = 0;
   CXBMCTinyXML xmlDoc;
   if (!xmlDoc.LoadFile(filename))
   {
@@ -80,14 +78,12 @@ static bool LoadXML(const std::string &filename, std::map<uint32_t, LocStr>& str
  * It should only be called from the LoadStr2Mem function to have a fallback.
  \param pathname The directory name, where we look for the strings file.
  \param strings [out] The resulting strings map.
- \param encoding Encoding of the strings. For PO files we only use utf-8.
- \param offset An offset value to place strings from the id value.
  \param bSourceLanguage If we are loading the source English strings.po.
  \return false if no strings.po file was loaded.
  */
-static bool LoadPO(const std::string &filename, std::map<uint32_t, LocStr>& strings,
-    std::string &encoding, uint32_t offset = 0 , bool bSourceLanguage = false)
+static bool LoadPO(const std::string &filename, std::map<uint32_t, LocStr>& strings, bool bSourceLanguage = false)
 {
+  uint32_t offset = 0;
   CPODocument PODoc;
   if (!PODoc.LoadFile(filename))
     return false;
@@ -145,12 +141,9 @@ static bool LoadPO(const std::string &filename, std::map<uint32_t, LocStr>& stri
  \param pathname The directory name, where we look for the strings file.
  \param language We load the strings for this language. Fallback language is always English.
  \param strings [out] The resulting strings map.
- \param encoding Encoding of the strings. For PO files we only use utf-8.
- \param offset An offset value to place strings from the id value.
  \return false if no strings.po or strings.xml file was loaded.
  */
-static bool LoadStr2Mem(const std::string &pathname_in, const std::string &language,
-    std::map<uint32_t, LocStr>& strings,  std::string &encoding, uint32_t offset = 0 )
+static bool LoadStr2Mem(const std::string &pathname_in, const std::string &language, std::map<uint32_t, LocStr>& strings)
 {
   std::string pathname = CSpecialProtocol::TranslatePathConvertCase(pathname_in + language);
   if (!XFILE::CDirectory::Exists(pathname))
@@ -169,16 +162,15 @@ static bool LoadStr2Mem(const std::string &pathname_in, const std::string &langu
   }
 
   bool useSourceLang = StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT) || StringUtils::EqualsNoCase(language, LANGUAGE_OLD_DEFAULT);
-  if (LoadPO(URIUtils::AddFileToFolder(pathname, "strings.po"), strings, encoding, offset, useSourceLang))
+  if (LoadPO(URIUtils::AddFileToFolder(pathname, "strings.po"), strings, useSourceLang))
     return true;
 
-  return LoadXML(URIUtils::AddFileToFolder(pathname, "strings.xml"), strings, encoding, offset);
+  return LoadXML(URIUtils::AddFileToFolder(pathname, "strings.xml"), strings);
 }
 
 static bool LoadWithFallback(const std::string& path, const std::string& language, std::map<uint32_t, LocStr>& strings)
 {
-  std::string encoding;
-  if (!LoadStr2Mem(path, language, strings, encoding))
+  if (!LoadStr2Mem(path, language, strings))
   {
     if (StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT)) // no fallback, nothing to do
       return false;
@@ -186,7 +178,7 @@ static bool LoadWithFallback(const std::string& path, const std::string& languag
 
   // load the fallback
   if (!StringUtils::EqualsNoCase(language, LANGUAGE_DEFAULT))
-    LoadStr2Mem(path, LANGUAGE_DEFAULT, strings, encoding);
+    LoadStr2Mem(path, LANGUAGE_DEFAULT, strings);
 
   return true;
 }
