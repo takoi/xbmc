@@ -215,30 +215,6 @@ bool CLocalizeStrings::Load(const std::string& strPathName, const std::string& s
   if (!LoadWithFallback(strPathName, strLanguage, strings))
     return false;
 
-  // fill in the constant strings
-  strings[20022].strTranslated = "";
-  strings[20027].strTranslated = "°F";
-  strings[20028].strTranslated = "K";
-  strings[20029].strTranslated = "°C";
-  strings[20030].strTranslated = "°Ré";
-  strings[20031].strTranslated = "°Ra";
-  strings[20032].strTranslated = "°Rø";
-  strings[20033].strTranslated = "°De";
-  strings[20034].strTranslated = "°N";
-
-  strings[20200].strTranslated = "km/h";
-  strings[20201].strTranslated = "m/min";
-  strings[20202].strTranslated = "m/s";
-  strings[20203].strTranslated = "ft/h";
-  strings[20204].strTranslated = "ft/min";
-  strings[20205].strTranslated = "ft/s";
-  strings[20206].strTranslated = "mph";
-  strings[20207].strTranslated = "kts";
-  strings[20208].strTranslated = "Beaufort";
-  strings[20209].strTranslated = "inch/s";
-  strings[20210].strTranslated = "yard/s";
-  strings[20211].strTranslated = "Furlong/Fortnight";
-
   CExclusiveLock lock(m_stringsMutex);
   Clear();
   m_strings = std::move(strings);
@@ -247,6 +223,11 @@ bool CLocalizeStrings::Load(const std::string& strPathName, const std::string& s
 
 const std::string& CLocalizeStrings::Get(uint32_t dwCode) const
 {
+  //temp
+  assert(dwCode != 20022);
+  assert(!(dwCode >= 20027 && dwCode <= 20034));
+  assert(!(dwCode >= 20200 && dwCode <= 20211));
+
   CSharedLock lock(m_stringsMutex);
   ciStrings i = m_strings.find(dwCode);
   if (i == m_strings.end())

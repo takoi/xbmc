@@ -160,15 +160,15 @@ public:
   CTemperature::Unit GetTemperatureUnit() const;
   void SetTemperatureUnit(CTemperature::Unit temperatureUnit);
   void SetTemperatureUnit(const std::string& temperatureUnit);
-  const std::string& GetTemperatureUnitString() const;
-  static const std::string& GetTemperatureUnitString(CTemperature::Unit temperatureUnit);
+  std::string GetTemperatureUnitString() const;
+  static std::string GetTemperatureUnitString(CTemperature::Unit temperatureUnit);
   std::string GetTemperatureAsString(const CTemperature& temperature) const;
 
   CSpeed::Unit GetSpeedUnit() const;
   void SetSpeedUnit(CSpeed::Unit speedUnit);
   void SetSpeedUnit(const std::string& speedUnit);
-  const std::string& GetSpeedUnitString() const;
-  static const std::string& GetSpeedUnitString(CSpeed::Unit speedUnit);
+  std::string GetSpeedUnitString() const;
+  static std::string GetSpeedUnitString(CSpeed::Unit speedUnit);
   std::string GetSpeedAsString(const CSpeed& speed) const;
 
   void GetRegionNames(std::vector<std::string>& array);

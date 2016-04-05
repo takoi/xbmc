@@ -114,7 +114,6 @@ static TemperatureInfo temperatureInfo[] = {
 };
 
 #define TEMPERATURE_INFO_SIZE     sizeof(temperatureInfo) / sizeof(TemperatureInfo)
-#define TEMP_UNIT_STRINGS         20027
 
 typedef struct SpeedInfo {
   CSpeed::Unit unit;
@@ -137,7 +136,6 @@ static SpeedInfo speedInfo[] = {
 };
 
 #define SPEED_INFO_SIZE           sizeof(speedInfo) / sizeof(SpeedInfo)
-#define SPEED_UNIT_STRINGS        20200
 
 #define SETTING_REGIONAL_DEFAULT  "regional"
 
@@ -1027,14 +1025,34 @@ std::string CLangInfo::GetTemperatureAsString(const CTemperature& temperature) c
 }
 
 // Returns the temperature unit string for the current language
-const std::string& CLangInfo::GetTemperatureUnitString() const
+std::string CLangInfo::GetTemperatureUnitString() const
 {
   return GetTemperatureUnitString(m_temperatureUnit);
 }
 
-const std::string& CLangInfo::GetTemperatureUnitString(CTemperature::Unit temperatureUnit)
+std::string CLangInfo::GetTemperatureUnitString(CTemperature::Unit temperatureUnit)
 {
-  return g_localizeStrings.Get(TEMP_UNIT_STRINGS + temperatureUnit);
+  switch (temperatureUnit)
+  {
+    case CTemperature::Unit::UnitFahrenheit:
+      return "°F";
+    case CTemperature::Unit::UnitKelvin:
+      return "K";
+    case CTemperature::Unit::UnitCelsius:
+      return "°C";
+    case CTemperature::Unit::UnitReaumur:
+      return "°Ré";
+    case CTemperature::Unit::UnitRankine:
+      return "°Ra";
+    case CTemperature::Unit::UnitRomer:
+      return "°Rø";
+    case CTemperature::Unit::UnitDelisle:
+      return "°De";
+    case CTemperature::Unit::UnitNewton:
+      return "°N";
+    default:
+      return "";
+  }
 }
 
 void CLangInfo::SetSpeedUnit(CSpeed::Unit speedUnit)
@@ -1073,14 +1091,42 @@ std::string CLangInfo::GetSpeedAsString(const CSpeed& speed) const
 }
 
 // Returns the speed unit string for the current language
-const std::string& CLangInfo::GetSpeedUnitString() const
+std::string CLangInfo::GetSpeedUnitString() const
 {
   return GetSpeedUnitString(m_speedUnit);
 }
 
-const std::string& CLangInfo::GetSpeedUnitString(CSpeed::Unit speedUnit)
+std::string CLangInfo::GetSpeedUnitString(CSpeed::Unit speedUnit)
 {
-  return g_localizeStrings.Get(SPEED_UNIT_STRINGS + speedUnit);
+  switch (speedUnit)
+  {
+    case CSpeed::Unit::UnitKilometresPerHour:
+      return "km/h";
+    case CSpeed::Unit::UnitMetresPerMinute:
+      return "m/min";
+    case CSpeed::Unit::UnitMetresPerSecond:
+      return "m/s";
+    case CSpeed::Unit::UnitFeetPerHour:
+      return "ft/h";
+    case CSpeed::Unit::UnitFeetPerMinute:
+      return "ft/min";
+    case CSpeed::Unit::UnitFeetPerSecond:
+      return "ft/s";
+    case CSpeed::Unit::UnitMilesPerHour:
+      return "mph";
+    case CSpeed::Unit::UnitKnots:
+      return "kts";
+    case CSpeed::Unit::UnitBeaufort:
+      return "Beaufort";
+    case CSpeed::Unit::UnitInchPerSecond:
+      return"inch/s";
+    case CSpeed::Unit::UnitYardPerSecond:
+      return "yard/s";
+    case CSpeed::Unit::UnitFurlongPerFortnight:
+      return "Furlong/Fortnight";
+    default:
+      return "";
+  }
 }
 
 std::set<std::string> CLangInfo::GetSortTokens() const

@@ -10529,7 +10529,6 @@ msgid "Poster"
 msgstr ""
 
 #empty string with id 20022
-#string id 20022 will always be set to an empty string (LocalizeStrings.cpp)
 
 msgctxt "#20023"
 msgid "Conflict"
@@ -10549,7 +10548,6 @@ msgid "Region"
 msgstr ""
 
 #empty strings from id 20027 to 20034
-#string id's 20027 thru 20034 are reserved for temperature strings (LocalizeStrings.cpp)
 
 #: xbmc/LangInfo.cpp
 msgctxt "#20035"
@@ -11262,7 +11260,6 @@ msgid "Downloading artist information failed"
 msgstr ""
 
 #empty strings from id 20200 to 20219
-#string id's 20200 thru 20211 are reserved for speedstrings (LocalizeStrings.cpp)
 
 #: system/settings/settings.xml
 msgctxt "#20220"
