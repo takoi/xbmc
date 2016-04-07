@@ -63,7 +63,7 @@
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "cores/IPlayer.h"
 #include "music/CueDocument.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 
 #ifdef TARGET_POSIX
 #include "linux/XTimeUtils.h"

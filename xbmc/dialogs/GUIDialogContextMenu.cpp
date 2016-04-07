@@ -24,7 +24,7 @@
 #include "guilib/GUIControlGroupList.h"
 #include "GUIDialogFileBrowser.h"
 #include "GUIUserMessages.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "GUIPassword.h"
 #include "Util.h"
 #include "utils/URIUtils.h"

@@ -38,7 +38,7 @@
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "cores/AudioEngine/Utils/AEUtil.h"
 #include "PlayListPlayer.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "video/Bookmark.h"
 #include "video/VideoLibraryQueue.h"
 #include "guilib/GUIControlProfiler.h"

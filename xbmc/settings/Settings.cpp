@@ -22,7 +22,7 @@
 
 #include "Settings.h"
 #include "Application.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "LangInfo.h"
 #include "Util.h"
 #include "events/EventLog.h"

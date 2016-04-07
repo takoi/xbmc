@@ -41,7 +41,7 @@
 #include "pvr/recordings/PVRRecording.h"
 
 #ifdef HAS_DVD_DRIVE
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #endif
 
 /*! \brief Clear current playlist

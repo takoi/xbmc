@@ -1,7 +1,6 @@
 SRCS=Application.cpp \
      ApplicationPlayer.cpp \
      AppParamParser.cpp \
-     Autorun.cpp \
      AutoSwitch.cpp \
      BackgroundInfoLoader.cpp \
      CompileInfo.cpp \

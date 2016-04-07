@@ -1,10 +1,12 @@
-set(SOURCES AutorunMediaJob.cpp
+set(SOURCES Autorun.cpp
+            AutorunMediaJob.cpp
             cdioSupport.cpp
             DetectDVDType.cpp
             IoSupport.cpp
             MediaManager.cpp)
 
-set(HEADERS AutorunMediaJob.h
+set(HEADERS Autorun.h
+            AutorunMediaJob.h
             cdioSupport.h
             DetectDVDType.h
             IoSupport.h

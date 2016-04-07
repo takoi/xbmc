@@ -54,7 +54,7 @@
 #include "utils/FileUtils.h"
 #include "utils/URIUtils.h"
 #include "utils/Variant.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "URL.h"
 #ifdef TARGET_POSIX
 #include "linux/XFileUtils.h"

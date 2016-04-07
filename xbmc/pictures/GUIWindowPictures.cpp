@@ -39,7 +39,7 @@
 #include "utils/log.h"
 #include "utils/URIUtils.h"
 #include "utils/Variant.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "interfaces/AnnouncementManager.h"
 #include "utils/SortUtils.h"
 #include "utils/StringUtils.h"

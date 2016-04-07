@@ -24,7 +24,7 @@
 #include "utils/URIUtils.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "dialogs/GUIDialogFileBrowser.h"
 #include "filesystem/PlaylistFileDirectory.h"
 #include "playlists/PlayListM3U.h"

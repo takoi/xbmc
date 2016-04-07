@@ -1,7 +1,6 @@
 set(SOURCES Application.cpp
             ApplicationPlayer.cpp
             AppParamParser.cpp
-            Autorun.cpp
             AutoSwitch.cpp
             BackgroundInfoLoader.cpp
             DatabaseManager.cpp
@@ -33,7 +32,6 @@ set(HEADERS AppParamParser.h
             Application.h
             ApplicationPlayer.h
             AutoSwitch.h
-            Autorun.h
             BackgroundInfoLoader.h
             CompileInfo.h
             DatabaseManager.h

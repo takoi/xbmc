@@ -22,7 +22,7 @@
 #include "GUIWindowPrograms.h"
 #include "Util.h"
 #include "addons/GUIDialogAddonInfo.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "guilib/GUIWindowManager.h"
 #include "FileItem.h"
 #include "settings/MediaSourceSettings.h"

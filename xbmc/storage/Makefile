@@ -1,4 +1,5 @@
-SRCS=AutorunMediaJob.cpp \
+SRCS=Autorun.cpp \
+     AutorunMediaJob.cpp \
      cdioSupport.cpp \
      DetectDVDType.cpp \
      IoSupport.cpp \

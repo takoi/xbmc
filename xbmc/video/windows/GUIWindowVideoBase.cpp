@@ -60,7 +60,7 @@
 #include "utils/URIUtils.h"
 #include "GUIUserMessages.h"
 #include "storage/MediaManager.h"
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "URL.h"
 #include "utils/GroupUtils.h"
 #include "TextureDatabase.h"

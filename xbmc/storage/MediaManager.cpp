@@ -37,7 +37,7 @@
 #include "filesystem/iso9660.h"
 #endif
 #endif
-#include "Autorun.h"
+#include "storage/Autorun.h"
 #include "GUIUserMessages.h"
 #include "settings/MediaSourceSettings.h"
 #include "settings/Settings.h"
