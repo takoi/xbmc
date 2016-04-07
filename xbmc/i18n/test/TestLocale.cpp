@@ -20,7 +20,7 @@
 
 #include <gtest/gtest.h>
 
-#include "utils/Locale.h"
+#include "i18n/Locale.h"
 #include "utils/StringUtils.h"
 
 static const std::string TerritorySeparator = "_";

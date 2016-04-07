@@ -26,7 +26,7 @@
 #include "guilib/GUIWindowManager.h"
 #include "input/KeyboardLayoutManager.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIUserMessages.h"
 #include "GUIDialogNumeric.h"
 #include "GUIDialogOK.h"

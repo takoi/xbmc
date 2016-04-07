@@ -36,7 +36,7 @@
 #include "utils/Variant.h"
 #include "video/VideoDatabase.h"
 #include "Application.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "utils/StringUtils.h"
 
 #define SETTING_VIDEO_VIEW_MODE           "video.viewmode"

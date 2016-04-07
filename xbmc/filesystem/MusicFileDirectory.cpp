@@ -20,7 +20,7 @@
 
 #include "MusicFileDirectory.h"
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/URIUtils.h"
 #include "utils/StringUtils.h"
 #include "URL.h"

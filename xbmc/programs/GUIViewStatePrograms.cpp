@@ -23,7 +23,7 @@
 #include "view/ViewState.h"
 #include "settings/MediaSourceSettings.h"
 #include "filesystem/Directory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/WindowIDs.h"
 #include "settings/Settings.h"
 #include "view/ViewStateSettings.h"

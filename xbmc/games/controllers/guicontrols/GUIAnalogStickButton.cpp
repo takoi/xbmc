@@ -19,7 +19,7 @@
  */
 
 #include "GUIAnalogStickButton.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 
 #include <string>

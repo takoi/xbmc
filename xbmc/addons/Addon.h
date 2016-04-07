@@ -22,7 +22,7 @@
 #include "IAddon.h"
 #include "addons/AddonVersion.h"
 #include "utils/XBMCTinyXML.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/ISerializable.h"
 #include <vector>
 

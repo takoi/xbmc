@@ -21,7 +21,7 @@
 #include "DatabaseQuery.h"
 #include "Database.h"
 #include "utils/XBDateTime.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/CharsetConverter.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"

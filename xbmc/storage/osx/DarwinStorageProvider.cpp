@@ -22,7 +22,7 @@
 #include "DarwinStorageProvider.h"
 #include "utils/RegExp.h"
 #include "Util.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 #include <sys/mount.h>
 #if defined(TARGET_DARWIN_OSX)

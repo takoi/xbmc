@@ -24,7 +24,7 @@
 #include "music/Album.h"
 #include "music/Artist.h"
 #include "utils/StringUtils.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/AdvancedSettings.h"
 #include "utils/Variant.h"
 #include "utils/Archive.h"

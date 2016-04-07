@@ -25,7 +25,7 @@
 #include "settings/Settings.h"
 #include "cores/IPlayer.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUISliderControl.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "video/dialogs/GUIDialogAudioSubtitleSettings.h"
@@ -33,7 +33,7 @@
 #include "cores/VideoPlayer/VideoRenderers/OverlayRendererGUI.h"
 #endif
 #include "Application.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "utils/StringUtils.h"
 
 CPlayerController::CPlayerController()

@@ -31,7 +31,7 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "filesystem/SpecialProtocol.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/Settings.h"
 #include "settings/MediaSourceSettings.h"

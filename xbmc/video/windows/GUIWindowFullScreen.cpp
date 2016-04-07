@@ -36,7 +36,7 @@
 #include "FileItem.h"
 #include "video/VideoReferenceClock.h"
 #include "utils/CPUInfo.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/StringUtils.h"
 #include "utils/XBDateTime.h"

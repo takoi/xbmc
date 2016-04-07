@@ -27,7 +27,7 @@
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIEditControl.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/Key.h"
 #include "profiles/ProfilesManager.h"
 #include "settings/Settings.h"

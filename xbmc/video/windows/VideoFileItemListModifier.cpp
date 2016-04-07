@@ -23,7 +23,7 @@
 #include "settings/AdvancedSettings.h"
 #include "video/VideoDatabase.h"
 #include "filesystem/VideoDatabaseDirectory/DirectoryNode.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/Settings.h"
 #include "video/VideoDbUrl.h"
 

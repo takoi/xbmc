@@ -29,7 +29,7 @@
 #include "dialogs/GUIDialogYesNo.h"
 #include "guilib/GUIMessage.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "profiles/ProfilesManager.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/MediaSettings.h"

@@ -35,7 +35,7 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "guilib/GraphicContext.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 
 using namespace EVENTCLIENT;

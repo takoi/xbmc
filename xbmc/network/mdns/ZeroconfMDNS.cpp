@@ -25,7 +25,7 @@
 #include <threads/SingleLock.h>
 #include <utils/log.h>
 #include "dialogs/GUIDialogKaiToast.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #if defined(TARGET_WINDOWS)
 #include "win32/WIN32Util.h"
 #endif //TARGET_WINDOWS

@@ -21,7 +21,7 @@
 #include <cstdlib>
 
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"
 #include "utils/Archive.h"

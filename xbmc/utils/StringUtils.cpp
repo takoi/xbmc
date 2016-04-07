@@ -37,7 +37,7 @@
 #endif
 #include "utils/fstrcmp.h"
 #include "Util.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include <locale>
 #include <functional>
 

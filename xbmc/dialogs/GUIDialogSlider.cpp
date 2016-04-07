@@ -22,7 +22,7 @@
 #include "guilib/GUISliderControl.h"
 #include "guilib/GUIWindowManager.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 #define CONTROL_HEADING 10
 #define CONTROL_SLIDER  11

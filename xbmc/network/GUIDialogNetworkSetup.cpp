@@ -25,7 +25,7 @@
 #include "dialogs/GUIDialogFileBrowser.h"
 #include "guilib/GUIEditControl.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/windows/GUIControlSettings.h"
 #include "URL.h"
 #include "utils/log.h"

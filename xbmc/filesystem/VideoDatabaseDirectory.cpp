@@ -27,7 +27,7 @@
 #include "FileItem.h"
 #include "settings/Settings.h"
 #include "utils/Crc32.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/LegacyPathTranslation.h"
 #include "utils/StringUtils.h"
 

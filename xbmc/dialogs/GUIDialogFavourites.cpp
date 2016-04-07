@@ -28,7 +28,7 @@
 #include "input/Key.h"
 #include "filesystem/File.h"
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "storage/MediaManager.h"
 #include "contextmenu/ContextMenuManager.h"
 #include "utils/Variant.h"

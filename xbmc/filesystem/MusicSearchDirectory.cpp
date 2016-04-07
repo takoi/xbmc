@@ -24,7 +24,7 @@
 #include "URL.h"
 #include "FileItem.h"
 #include "utils/log.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 using namespace XFILE;
 

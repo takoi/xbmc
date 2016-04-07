@@ -22,7 +22,7 @@
 #include "GUIInfoManager.h"
 #include "addons/AddonManager.h"
 #include "utils/log.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIColorManager.h"
 #include "GUIListItem.h"
 #include "utils/StringUtils.h"

@@ -33,7 +33,7 @@
 #include "settings/Settings.h"
 #include "GUIUserMessages.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 #define CONTROL_LABELFILES        12
 

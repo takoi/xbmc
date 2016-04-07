@@ -25,7 +25,7 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "events/EventLog.h"
 #include "events/NotificationEvent.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "log.h"
 #include "messaging/ApplicationMessenger.h"
 #include "threads/SingleLock.h"

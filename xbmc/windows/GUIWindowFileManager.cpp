@@ -46,7 +46,7 @@
 #include "settings/MediaSourceSettings.h"
 #include "settings/Settings.h"
 #include "input/InputManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/log.h"
 #include "utils/JobManager.h"

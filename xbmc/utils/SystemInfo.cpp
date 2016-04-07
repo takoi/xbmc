@@ -34,7 +34,7 @@
 #include "network/Network.h"
 #include "Application.h"
 #include "windowing/WindowingFactory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "CPUInfo.h"
 #include "CompileInfo.h"
 #include "settings/Settings.h"

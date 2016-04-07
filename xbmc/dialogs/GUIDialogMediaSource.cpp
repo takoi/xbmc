@@ -36,7 +36,7 @@
 #include "FileItem.h"
 #include "settings/MediaSourceSettings.h"
 #include "settings/Settings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "PasswordManager.h"
 #include "URL.h"
 #include "pvr/recordings/PVRRecordingsPath.h"

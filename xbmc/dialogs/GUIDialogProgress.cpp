@@ -23,7 +23,7 @@
 #include "Application.h"
 #include "guiinfo/GUIInfoLabels.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/log.h"
 #include "utils/Variant.h"

@@ -29,7 +29,7 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "guilib/GUIWindowManager.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "pictures/GUIWindowSlideShow.h"
 #include "settings/AdvancedSettings.h"
 #include "utils/JobManager.h"

@@ -24,7 +24,7 @@
 #include "input/MouseStat.h"
 #include "windowing/WindowingFactory.h"
 #include "filesystem/SpecialProtocol.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #undef BOOL
 
 #import "IOSExternalTouchController.h"

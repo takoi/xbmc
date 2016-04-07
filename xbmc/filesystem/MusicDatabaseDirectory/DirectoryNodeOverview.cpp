@@ -21,7 +21,7 @@
 #include "DirectoryNodeOverview.h"
 #include "FileItem.h"
 #include "music/MusicDatabase.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 
 namespace XFILE

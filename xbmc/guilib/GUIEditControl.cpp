@@ -26,7 +26,7 @@
 #include "dialogs/GUIDialogNumeric.h"
 #include "input/XBMC_vkeys.h"
 #include "input/Key.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/XBDateTime.h"
 #include "windowing/WindowingFactory.h"
 #include "utils/md5.h"

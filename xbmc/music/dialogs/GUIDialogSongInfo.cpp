@@ -35,7 +35,7 @@
 #include "filesystem/CurlFile.h"
 #include "FileItem.h"
 #include "settings/MediaSourceSettings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "music/Album.h"
 #include "storage/MediaManager.h"
 #include "GUIDialogMusicInfo.h"

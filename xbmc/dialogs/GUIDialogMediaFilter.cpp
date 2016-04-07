@@ -24,7 +24,7 @@
 #include "GUIUserMessages.h"
 #include "utils/XBDateTime.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "music/MusicDatabase.h"
 #include "music/MusicDbUrl.h"
 #include "playlists/SmartPlayList.h"

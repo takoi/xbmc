@@ -30,7 +30,7 @@
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "interfaces/AnnouncementManager.h"
 
 #define CONTROL_HEADING_LABEL  1

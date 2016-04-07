@@ -19,13 +19,13 @@
  */
 
 #include "system.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "addons/LanguageResource.h"
 #include "utils/CharsetConverter.h"
 #include "utils/log.h"
 #include "filesystem/SpecialProtocol.h"
 #include "utils/URIUtils.h"
-#include "utils/POUtils.h"
+#include "i18n/POUtils.h"
 #include "filesystem/Directory.h"
 #include "threads/SharedSection.h"
 #include "threads/SingleLock.h"

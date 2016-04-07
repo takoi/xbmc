@@ -31,7 +31,7 @@
 #include "Setupapi.h"
 #include "storage/MediaManager.h"
 #include "windowing/WindowingFactory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/CharsetConverter.h"
 #include "utils/log.h"
 #include "powermanagement\PowerManager.h"

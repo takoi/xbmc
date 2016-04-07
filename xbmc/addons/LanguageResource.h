@@ -22,7 +22,7 @@
 #include <set>
 
 #include "addons/Resource.h"
-#include "utils/Locale.h"
+#include "i18n/Locale.h"
 
 namespace ADDON
 {

@@ -19,7 +19,7 @@
  */
 #include "Win32StorageProvider.h"
 #include "WIN32Util.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "filesystem/SpecialProtocol.h"
 #include "storage/MediaManager.h"
 #include "utils/JobManager.h"

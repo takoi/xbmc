@@ -23,7 +23,7 @@
 #include "messaging/ApplicationMessenger.h"
 #include "guilib/GUIWindowManager.h"
 #include "dialogs/GUIDialogProgress.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/log.h"
 #include "threads/SingleLock.h"
 #include "utils/Variant.h"

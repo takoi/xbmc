@@ -28,7 +28,7 @@
 #include "dialogs/GUIDialogBusy.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "interfaces/AnnouncementManager.h"
 #include "interfaces/builtins/Builtins.h"
 #include "pvr/PVRManager.h"

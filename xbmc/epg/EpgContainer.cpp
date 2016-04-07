@@ -27,7 +27,7 @@
 #include "Epg.h"
 #include "EpgSearchFilter.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "pvr/channels/PVRChannelGroupsContainer.h"
 #include "pvr/PVRManager.h"
 #include "pvr/recordings/PVRRecordings.h"

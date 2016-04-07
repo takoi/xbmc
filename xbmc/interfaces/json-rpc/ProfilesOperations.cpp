@@ -20,7 +20,7 @@
 
 #include "ProfilesOperations.h"
 #include "messaging/ApplicationMessenger.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "profiles/ProfilesManager.h"
 #include "utils/md5.h"
 #include "utils/Variant.h"

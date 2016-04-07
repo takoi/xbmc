@@ -51,7 +51,7 @@
 #include "cores/FFmpeg.h"
 #include "TextureCache.h"
 #include "Util.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 
 #include <cstdlib>
 #include <memory>

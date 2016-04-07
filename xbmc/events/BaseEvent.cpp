@@ -19,7 +19,7 @@
  */
 
 #include "BaseEvent.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 CBaseEvent::CBaseEvent(const std::string& identifier, const CVariant& label, const CVariant& description, EventLevel level /* = EventLevel::Information */)
   : m_level(level),

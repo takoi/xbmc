@@ -34,7 +34,7 @@
 #include "filesystem/Directory.h"
 #include "FileItem.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/Variant.h"
 
 using namespace XFILE;

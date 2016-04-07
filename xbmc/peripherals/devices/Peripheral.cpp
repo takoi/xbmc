@@ -22,7 +22,7 @@
 
 #include <utility>
 
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "peripherals/Peripherals.h"
 #include "settings/lib/Setting.h"
 #include "peripherals/addons/AddonButtonMapping.h"

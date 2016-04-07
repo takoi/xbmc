@@ -23,7 +23,7 @@
 #include "dialogs/GUIDialogYesNo.h"
 #include "epg/EpgInfoTag.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "messaging/ApplicationMessenger.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"

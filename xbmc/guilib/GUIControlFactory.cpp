@@ -20,7 +20,7 @@
 
 #include "system.h"
 #include "GUIControlFactory.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIButtonControl.h"
 #include "GUIRadioButtonControl.h"
 #include "GUISpinControl.h"

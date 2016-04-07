@@ -18,7 +18,7 @@
  *
  */
 
-#include "utils/POUtils.h"
+#include "i18n/POUtils.h"
 
 #include "test/TestUtils.h"
 
@@ -29,7 +29,7 @@ TEST(TestPOUtils, General)
 {
   CPODocument a;
 
-  EXPECT_TRUE(a.LoadFile(XBMC_REF_FILE_PATH("xbmc/utils/test/data/language/Spanish/strings.po")));
+  EXPECT_TRUE(a.LoadFile(XBMC_REF_FILE_PATH("xbmc/i18n/test/data/language/Spanish/strings.po")));
 
   EXPECT_TRUE(a.GetNextEntry());
   EXPECT_EQ(ID_FOUND, a.GetEntryType());

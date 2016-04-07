@@ -42,7 +42,7 @@
 #include "utils/Variant.h"
 #include "AddonDatabase.h"
 #include "storage/MediaManager.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "input/Key.h"
 #include "contextmenu/ContextMenuManager.h"
 

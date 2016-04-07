@@ -20,7 +20,7 @@
 
 #include "PeripheralHID.h"
 #include "utils/log.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/ButtonTranslator.h"
 
 using namespace PERIPHERALS;

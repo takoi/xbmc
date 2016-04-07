@@ -22,7 +22,7 @@
 #include "GUIInfoManager.h"
 #include "epg/EpgInfoTag.h"
 #include "guiinfo/GUIInfoLabels.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/Settings.h"
 #include "threads/SingleLock.h"

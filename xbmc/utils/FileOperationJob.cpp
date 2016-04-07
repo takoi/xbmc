@@ -24,7 +24,7 @@
 #include "URL.h"
 #include "Util.h"
 #include "dialogs/GUIDialogExtendedProgressBar.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIWindowManager.h"
 #include "filesystem/Directory.h"
 #include "filesystem/File.h"

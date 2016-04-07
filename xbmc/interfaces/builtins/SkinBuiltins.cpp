@@ -28,7 +28,7 @@
 #include "dialogs/GUIDialogSelect.h"
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "MediaSource.h"
 #include "settings/MediaSourceSettings.h"
 #include "settings/Settings.h"

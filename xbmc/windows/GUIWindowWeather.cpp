@@ -24,7 +24,7 @@
 
 #include "dialogs/GUIDialogOK.h"
 #include "GUIUserMessages.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"
 #include "utils/Variant.h"

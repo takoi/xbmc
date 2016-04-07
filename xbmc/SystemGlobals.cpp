@@ -27,10 +27,10 @@
 #include "filesystem/DllLibCurl.h"
 #include "filesystem/DirectoryCache.h"
 #include "GUIPassword.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "PartyModeManager.h"
 #include "PlayListPlayer.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #ifdef HAS_PYTHON
 #include "interfaces/python/XBPython.h"
 #endif

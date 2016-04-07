@@ -22,7 +22,7 @@
 #include "GUIInfoManager.h"
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "dialogs/GUIDialogYesNo.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIRadioButtonControl.h"
 #include "guilib/GUIWindowManager.h"

@@ -49,7 +49,7 @@
 #include "filesystem/File.h"
 #include "filesystem/SpecialProtocol.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "interfaces/AnnouncementManager.h"
 #include "messaging/ApplicationMessenger.h"
 #include "music/tags/MusicInfoTag.h"

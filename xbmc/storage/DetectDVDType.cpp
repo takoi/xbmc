@@ -23,7 +23,7 @@
 #ifdef HAS_DVD_DRIVE
 
 #include "DetectDVDType.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/log.h"
 #include "cdioSupport.h"

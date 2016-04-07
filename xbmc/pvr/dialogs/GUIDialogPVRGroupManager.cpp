@@ -24,7 +24,7 @@
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIRadioButtonControl.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/Key.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"

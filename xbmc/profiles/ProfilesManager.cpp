@@ -38,7 +38,7 @@
 #include "filesystem/File.h"
 #include "filesystem/SpecialProtocol.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/ButtonTranslator.h"
 #include "input/InputManager.h"
 #include "settings/Settings.h"

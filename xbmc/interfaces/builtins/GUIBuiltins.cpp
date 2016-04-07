@@ -26,7 +26,7 @@
 #include "dialogs/GUIDialogNumeric.h"
 #include "filesystem/Directory.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/StereoscopicsManager.h"
 #include "input/ButtonTranslator.h"
 #include "settings/AdvancedSettings.h"

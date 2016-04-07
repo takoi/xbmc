@@ -23,7 +23,7 @@
 #include "utils/log.h"
 #include "Util.h"
 #include "utils/TimeUtils.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "Application.h"
 
 static const char *ContextStateToString(pa_context_state s)

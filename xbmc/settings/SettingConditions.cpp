@@ -30,7 +30,7 @@
 #endif // defined(TARGET_ANDROID)
 #include "cores/AudioEngine/AEFactory.h"
 #include "cores/VideoPlayer/DVDCodecs/Video/DVDVideoCodec.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "peripherals/Peripherals.h"
 #include "peripherals/bus/virtual/PeripheralBusAddon.h"
 #include "profiles/ProfilesManager.h"

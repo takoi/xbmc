@@ -20,7 +20,7 @@
 
 #include "PVRSettings.h"
 
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 
 using namespace PVR;

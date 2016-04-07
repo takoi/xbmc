@@ -26,7 +26,7 @@
 #include "guilib/GUISpinControl.h"
 #include "guilib/GUIMessage.h"
 #include "guilib/GUITextBox.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "messaging/ApplicationMessenger.h"
 #include "pvr/channels/PVRRadioRDSInfoTag.h"
 

@@ -46,7 +46,7 @@
 #include "Application.h"
 #include "messaging/ApplicationMessenger.h"
 #include "settings/Settings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/LegacyPathTranslation.h"
 #include "utils/log.h"
 #include "utils/StringUtils.h"

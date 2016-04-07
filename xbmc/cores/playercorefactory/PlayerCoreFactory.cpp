@@ -29,7 +29,7 @@
 #include "settings/AdvancedSettings.h"
 #include "PlayerCoreConfig.h"
 #include "PlayerSelectionRule.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/XMLUtils.h"
 #include <sstream>

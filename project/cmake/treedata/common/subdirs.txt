@@ -16,6 +16,7 @@ xbmc/dbwrappers                                 dbwrappers
 xbmc/dialogs                                    dialogs
 xbmc/epg                                        epg
 xbmc/guilib                                     guilib
+xbmc/i18n                                       i18n
 xbmc/input                                      input
 xbmc/input/joysticks                            input/joysticks
 xbmc/input/joysticks/generic                    input/joysticks/generic

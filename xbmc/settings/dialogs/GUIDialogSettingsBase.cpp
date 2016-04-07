@@ -35,7 +35,7 @@
 #include "guilib/GUIToggleButtonControl.h"
 #include "guilib/GUIWindowManager.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/SettingControl.h"
 #include "settings/lib/SettingSection.h"
 #include "settings/windows/GUIControlSettings.h"

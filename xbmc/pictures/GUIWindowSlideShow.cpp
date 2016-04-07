@@ -38,7 +38,7 @@
 #include "FileItem.h"
 #include "guilib/Texture.h"
 #include "windowing/WindowingFactory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/log.h"
 #include "utils/Variant.h"

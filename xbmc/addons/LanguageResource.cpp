@@ -18,7 +18,7 @@
 *
 */
 #include "LanguageResource.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "addons/AddonManager.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "guilib/GUIWindowManager.h"

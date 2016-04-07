@@ -22,8 +22,8 @@
 #include "StreamDetails.h"
 #include "StreamUtils.h"
 #include "utils/Variant.h"
-#include "LangInfo.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangInfo.h"
+#include "i18n/LangCodeExpander.h"
 #include "utils/Archive.h"
 
 const float VIDEOASPECT_EPSILON = 0.025f;

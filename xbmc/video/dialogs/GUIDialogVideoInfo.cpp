@@ -45,7 +45,7 @@
 #include "settings/MediaSourceSettings.h"
 #include "settings/Settings.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "contextmenu/ContextMenuManager.h"
 #include "GUIUserMessages.h"
 #include "TextureCache.h"

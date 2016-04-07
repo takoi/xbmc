@@ -31,7 +31,7 @@
 #include "platform/darwin/osx/CocoaInterface.h"
 #endif
 #include "settings/AdvancedSettings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIRSSControl.h"
 #include "threads/SingleLock.h"
 #include "log.h"

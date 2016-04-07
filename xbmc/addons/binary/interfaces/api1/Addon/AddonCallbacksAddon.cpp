@@ -23,7 +23,7 @@
 #include "addons/Addon.h"
 #include "AddonCallbacksAddon.h"
 #include "utils/log.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "filesystem/File.h"
 #include "filesystem/Directory.h"

@@ -32,7 +32,7 @@
 #include "utils/Variant.h"
 #include "music/tags/MusicInfoTag.h"
 #include "dialogs/GUIDialogKaiToast.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "interfaces/AnnouncementManager.h"
 #include "input/Key.h"
 #include "URL.h"

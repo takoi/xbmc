@@ -20,7 +20,7 @@
 
 #include "Application.h"
 #include "GUIDialogBoxBase.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"

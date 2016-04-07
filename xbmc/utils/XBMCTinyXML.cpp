@@ -24,7 +24,7 @@
 #include "utils/CharsetConverter.h"
 #include "utils/CharsetDetection.h"
 #include "utils/Utf8Utils.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "RegExp.h"
 #include "utils/log.h"
 

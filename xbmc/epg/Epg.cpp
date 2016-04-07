@@ -25,7 +25,7 @@
 #include "addons/kodi-addon-dev-kit/include/kodi/xbmc_epg_types.h"
 #include "EpgContainer.h"
 #include "EpgDatabase.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "pvr/addons/PVRClients.h"
 #include "pvr/PVRManager.h"
 #include "pvr/timers/PVRTimers.h"

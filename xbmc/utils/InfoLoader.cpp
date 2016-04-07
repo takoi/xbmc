@@ -19,7 +19,7 @@
  */
 
 #include "InfoLoader.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "JobManager.h"
 #include "TimeUtils.h"
 

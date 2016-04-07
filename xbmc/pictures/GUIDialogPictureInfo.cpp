@@ -23,7 +23,7 @@
 #include "guilib/GUIWindowManager.h"
 #include "FileItem.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "PictureInfoTag.h"
 #include "guiinfo/GUIInfoLabels.h"
 

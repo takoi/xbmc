@@ -32,7 +32,7 @@
 #include "dialogs/GUIDialogSelect.h"
 #include "GUIInfoManager.h"
 #include "GUIUserMessages.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/Key.h"
 #include "guilib/GUIWindowManager.h"
 #include "settings/AdvancedSettings.h"

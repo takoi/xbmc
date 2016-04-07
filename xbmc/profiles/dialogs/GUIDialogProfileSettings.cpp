@@ -29,7 +29,7 @@
 #include "filesystem/File.h"
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIPassword.h"
 #include "profiles/dialogs/GUIDialogLockSettings.h"
 #include "profiles/ProfilesManager.h"

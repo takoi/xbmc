@@ -20,7 +20,7 @@
 
 #include "system.h"
 #include "MediaManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "URL.h"
 #include "utils/URIUtils.h"
 #ifdef TARGET_WINDOWS

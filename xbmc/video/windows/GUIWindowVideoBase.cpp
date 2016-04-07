@@ -49,7 +49,7 @@
 #include "settings/MediaSettings.h"
 #include "settings/dialogs/GUIDialogContentSettings.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/log.h"
 #include "utils/FileUtils.h"

@@ -35,9 +35,9 @@
 
 #include "DVDFileInfo.h"
 
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 #include "utils/URIUtils.h"
 #include "GUIInfoManager.h"
@@ -71,7 +71,7 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "utils/StringUtils.h"
 #include "Util.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "URL.h"
 #include "video/VideoReferenceClock.h"
 

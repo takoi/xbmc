@@ -31,7 +31,7 @@
 #include "FileItem.h"
 #include "StringUtils.h"
 #include "URIUtils.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "Variant.h"
 
 #include <cassert>

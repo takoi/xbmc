@@ -20,7 +20,7 @@
 
 #include "GUIRadioButtonControl.h"
 #include "GUIInfoManager.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "input/Key.h"
 
 CGUIRadioButtonControl::CGUIRadioButtonControl(int parentID, int controlID, float posX, float posY, float width, float height,

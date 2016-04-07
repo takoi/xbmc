@@ -18,7 +18,7 @@
  *
  */
 
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 
 #include <algorithm>
 
@@ -28,7 +28,7 @@
 #include "addons/RepositoryUpdater.h"
 #include "Application.h"
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "messaging/ApplicationMessenger.h"
 #include "pvr/PVRManager.h"
 #include "settings/AdvancedSettings.h"
@@ -36,7 +36,7 @@
 #include "settings/Settings.h"
 #include "Util.h"
 #include "utils/CharsetConverter.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "utils/log.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"

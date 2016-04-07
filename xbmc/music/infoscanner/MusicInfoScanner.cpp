@@ -39,7 +39,7 @@
 #include "GUIInfoManager.h"
 #include "guilib/GUIKeyboardFactory.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIUserMessages.h"
 #include "interfaces/AnnouncementManager.h"
 #include "music/MusicThumbLoader.h"

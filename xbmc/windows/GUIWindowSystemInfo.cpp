@@ -22,7 +22,7 @@
 #include "GUIWindowSystemInfo.h"
 #include "GUIInfoManager.h"
 #include "guilib/WindowIDs.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "pvr/PVRManager.h"
 #include "utils/SystemInfo.h"
 #include "utils/StringUtils.h"

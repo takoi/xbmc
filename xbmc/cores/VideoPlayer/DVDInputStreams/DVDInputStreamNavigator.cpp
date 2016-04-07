@@ -19,16 +19,16 @@
  */
 
 #include "DVDInputStreamNavigator.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "../DVDDemuxSPU.h"
 #include "DVDStateSerializer.h"
 #include "settings/Settings.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "utils/log.h"
 #include "guilib/Geometry.h"
 #include "utils/URIUtils.h"
 #include "utils/StringUtils.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #if defined(TARGET_DARWIN)
 #include "platform/darwin/osx/CocoaInterface.h"
 #endif

@@ -25,7 +25,7 @@
 #include "settings/Settings.h"
 #include "FileItem.h"
 #include "guilib/WindowIDs.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/log.h"
 #include "utils/SortUtils.h"
 #include "view/ViewStateSettings.h"

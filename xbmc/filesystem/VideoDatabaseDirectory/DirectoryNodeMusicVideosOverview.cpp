@@ -20,7 +20,7 @@
 
 #include "DirectoryNodeMusicVideosOverview.h"
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "video/VideoDbUrl.h"
 #include "utils/StringUtils.h"
 

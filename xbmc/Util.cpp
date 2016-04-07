@@ -78,7 +78,7 @@
 #include "settings/AdvancedSettings.h"
 #ifdef HAS_IRSERVERSUITE
 #endif
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/md5.h"
 #include "utils/TimeUtils.h"
 #include "utils/URIUtils.h"
@@ -88,7 +88,7 @@
 #include "cores/VideoPlayer/DVDSubtitles/DVDSubtitleTagSami.h"
 #include "cores/VideoPlayer/DVDSubtitles/DVDSubtitleStream.h"
 #include "URL.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "video/VideoInfoTag.h"
 #ifdef HAVE_LIBCAP
   #include <sys/capability.h>

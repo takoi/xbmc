@@ -37,7 +37,7 @@
 #include "guilib/GUISettingsSliderControl.h"
 #include "guilib/GUISpinControlEx.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/lib/Setting.h"
 #include "settings/MediaSourceSettings.h"
 #include "settings/SettingAddon.h"

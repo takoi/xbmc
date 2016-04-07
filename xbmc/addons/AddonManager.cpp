@@ -39,7 +39,7 @@
 #include "DllLibCPluff.h"
 #include "events/AddonManagementEvent.h"
 #include "events/EventLog.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "PluginSource.h"
 #include "Repository.h"
 #include "Scraper.h"

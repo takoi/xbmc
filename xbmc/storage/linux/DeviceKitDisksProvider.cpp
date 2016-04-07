@@ -20,7 +20,7 @@
 #include "DeviceKitDisksProvider.h"
 #ifdef HAS_DBUS
 #include "settings/AdvancedSettings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/log.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"

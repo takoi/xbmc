@@ -25,7 +25,7 @@
 
 #include "AndroidStorageProvider.h"
 #include "platform/android/activity/XBMCApp.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "filesystem/File.h"
 #include "filesystem/Directory.h"
 

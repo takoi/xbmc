@@ -23,14 +23,11 @@ set(SOURCES TestAlarmClock.cpp
             TestJSONVariantParser.cpp
             TestJSONVariantWriter.cpp
             TestLabelFormatter.cpp
-            TestLangCodeExpander.cpp
-            TestLocale.cpp
             Testlog.cpp
             TestMathUtils.cpp
             Testmd5.cpp
             TestMime.cpp
             TestPerformanceSample.cpp
-            TestPOUtils.cpp
             TestRegExp.cpp
             Testrfft.cpp
             TestRingBuffer.cpp

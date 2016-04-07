@@ -23,7 +23,7 @@
 #include "Application.h"
 #include "guilib/GUITexture.h"
 #include "guilib/Texture.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "settings/Settings.h"
 

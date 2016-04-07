@@ -40,7 +40,7 @@
 #include "addons/AddonManager.h"
 #include "FileItem.h"
 #include "filesystem/File.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "TextureCache.h"
 #include "video/windows/GUIWindowVideoBase.h"
 #include "URL.h"

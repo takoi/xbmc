@@ -21,8 +21,8 @@
 #include <cstdlib>
 
 #include "XBDateTime.h"
-#include "LangInfo.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LangInfo.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/log.h"
 #include "utils/StringUtils.h"
 #include "utils/Archive.h"

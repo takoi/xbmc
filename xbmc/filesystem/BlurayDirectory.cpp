@@ -27,7 +27,7 @@
 #include "DllLibbluray.h"
 #include "FileItem.h"
 #include "video/VideoInfoTag.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 #include <cassert>
 

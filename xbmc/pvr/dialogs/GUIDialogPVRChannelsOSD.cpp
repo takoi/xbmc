@@ -23,7 +23,7 @@
 #include "GUIInfoManager.h"
 #include "dialogs/GUIDialogKaiToast.h"
 #include "epg/EpgContainer.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIWindowManager.h"
 #include "input/Key.h"
 #include "messaging/ApplicationMessenger.h"

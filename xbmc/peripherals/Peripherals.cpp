@@ -46,7 +46,7 @@
 #include "FileItem.h"
 #include "filesystem/Directory.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/WindowIDs.h"
 #include "GUIUserMessages.h"
 #include "input/Key.h"

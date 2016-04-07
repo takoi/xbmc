@@ -20,7 +20,7 @@
 
 #include "Application.h"
 #include "dialogs/GUIDialogNumeric.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIWindowManager.h"
 #include "input/Key.h"
 #include "messaging/ApplicationMessenger.h"

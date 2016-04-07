@@ -19,7 +19,7 @@
  */
 
 #include "SortUtils.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "URL.h"
 #include "Util.h"
 #include "utils/XBDateTime.h"

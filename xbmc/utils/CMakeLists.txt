@@ -30,16 +30,13 @@ set(SOURCES ActorProtocol.cpp
             JSONVariantParser.cpp
             JSONVariantWriter.cpp
             LabelFormatter.cpp
-            LangCodeExpander.cpp
             LegacyPathTranslation.cpp
-            Locale.cpp
             log.cpp
             md5.cpp
             Mime.cpp
             Observer.cpp
             PerformanceSample.cpp
             PerformanceStats.cpp
-            POUtils.cpp
             RecentlyAddedJob.cpp
             RegExp.cpp
             rfft.cpp
@@ -115,9 +112,7 @@ set(HEADERS ActorProtocol.h
             JSONVariantParser.h
             JSONVariantWriter.h
             LabelFormatter.h
-            LangCodeExpander.h
             LegacyPathTranslation.h
-            Locale.h
             log.h
             MathUtils.h
             md5.h
@@ -126,7 +121,6 @@ set(HEADERS ActorProtocol.h
             params_check_macros.h
             PerformanceSample.h
             PerformanceStats.h
-            POUtils.h
             ProgressJob.h
             RecentlyAddedJob.h
             RegExp.h

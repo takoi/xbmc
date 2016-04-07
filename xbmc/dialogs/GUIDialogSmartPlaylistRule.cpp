@@ -27,7 +27,7 @@
 #include "filesystem/Directory.h"
 #include "FileItem.h"
 #include "guilib/GUIEditControl.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/MediaSourceSettings.h"
 #include "storage/MediaManager.h"
 #include "utils/LabelFormatter.h"

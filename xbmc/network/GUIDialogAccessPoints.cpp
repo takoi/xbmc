@@ -26,7 +26,7 @@
 #include "Application.h"
 #include "FileItem.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/Variant.h"
 
 #define CONTROL_ACCESS_POINTS 3

@@ -28,7 +28,7 @@
 #include "Util.h"
 #include "filesystem/File.h"
 #include "filesystem/SmartPlaylistDirectory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/DatabaseUtils.h"
 #include "utils/JSONVariantParser.h"
 #include "utils/JSONVariantWriter.h"

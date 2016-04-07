@@ -27,7 +27,7 @@
 #include "utils/URIUtils.h"
 #include "utils/Variant.h"
 #include "Util.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "filesystem/Directory.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/Settings.h"

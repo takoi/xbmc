@@ -23,7 +23,7 @@
 #include "FileItem.h"
 #include "music/MusicDbUrl.h"
 #include "settings/Settings.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/AdvancedSettings.h"
 
 using namespace XFILE::MUSICDATABASEDIRECTORY;

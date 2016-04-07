@@ -23,7 +23,7 @@
 #include "Settings.h"
 #include "Application.h"
 #include "storage/Autorun.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "Util.h"
 #include "events/EventLog.h"
 #include "addons/AddonSystemSettings.h"

@@ -39,7 +39,7 @@
 #include "settings/Settings.h"
 #include "playlists/PlayList.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "storage/MediaManager.h"
 #include "video/VideoDatabase.h"
 #include "utils/StringUtils.h"

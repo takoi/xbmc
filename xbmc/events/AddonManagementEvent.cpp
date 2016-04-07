@@ -21,7 +21,7 @@
 #include "AddonManagementEvent.h"
 #include "addons/GUIDialogAddonInfo.h"
 #include "filesystem/AddonsDirectory.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/URIUtils.h"
 
 CAddonManagementEvent::CAddonManagementEvent(ADDON::AddonPtr addon, const CVariant& description)

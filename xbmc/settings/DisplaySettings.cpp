@@ -29,7 +29,7 @@
 
 #include "guilib/GraphicContext.h"
 #include "guilib/gui3d.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/StereoscopicsManager.h"
 #include "messaging/ApplicationMessenger.h"
 #include "messaging/helpers/DialogHelper.h"

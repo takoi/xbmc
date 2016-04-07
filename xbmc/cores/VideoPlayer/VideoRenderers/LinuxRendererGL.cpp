@@ -38,7 +38,7 @@
 #include "VideoShaders/VideoFilterShader.h"
 #include "windowing/WindowingFactory.h"
 #include "guilib/Texture.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/MatrixGLES.h"
 #include "threads/SingleLock.h"
 #include "utils/log.h"

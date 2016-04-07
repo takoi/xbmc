@@ -22,7 +22,7 @@
 #include "dialogs/GUIDialogYesNo.h"
 #include "guilib/GUIKeyboardFactory.h"
 #include "utils/log.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "JobManager.h"
 #include "FileOperationJob.h"
 #include "URIUtils.h"

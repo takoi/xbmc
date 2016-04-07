@@ -27,7 +27,7 @@
 #include "dialogs/GUIDialogBusy.h"
 #include "dialogs/GUIDialogYesNo.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIListContainer.h"
 #include "guilib/GUIRadioButtonControl.h"
 #include "input/Key.h"

@@ -22,7 +22,7 @@
 #include "Controller.h"
 #include "ControllerDefinitions.h"
 #include "ControllerTranslator.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/log.h"
 #include "utils/XMLUtils.h"
 

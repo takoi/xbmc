@@ -21,7 +21,7 @@
 #include "GUIDialogSelect.h"
 #include "FileItem.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 
 #define CONTROL_HEADING         1

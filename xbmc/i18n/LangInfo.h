@@ -30,7 +30,7 @@
 #include "settings/lib/ISettingCallback.h"
 #include "settings/lib/ISettingsHandler.h"
 #include "utils/GlobalsHandling.h"
-#include "utils/Locale.h"
+#include "i18n/Locale.h"
 #include "utils/Speed.h"
 #include "utils/Temperature.h"
 

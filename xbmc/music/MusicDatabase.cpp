@@ -40,7 +40,7 @@
 #include "guiinfo/GUIInfoLabels.h"
 #include "GUIInfoManager.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "interfaces/AnnouncementManager.h"
 #include "messaging/helpers/DialogHelper.h"
 #include "music/tags/MusicInfoTag.h"

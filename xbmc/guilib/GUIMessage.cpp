@@ -19,7 +19,7 @@
  */
 
 #include "GUIMessage.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 
 std::string CGUIMessage::empty_string;
 

@@ -34,7 +34,7 @@
 #include "filesystem/StackDirectory.h"
 #include "GUIInfoManager.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIUserMessages.h"
 #include "interfaces/AnnouncementManager.h"
 #include "messaging/ApplicationMessenger.h"

@@ -33,7 +33,7 @@
 #include "dialogs/GUIDialogOK.h"
 #include "guilib/GUIMessage.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/StereoscopicsManager.h"
 #include "input/Key.h"
 #include "interfaces/builtins/Builtins.h"

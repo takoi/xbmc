@@ -27,7 +27,7 @@
 #include "DVDCodecs/Overlay/DVDOverlay.h"
 #include "DVDCodecs/Overlay/DVDOverlayImage.h"
 #include "settings/Settings.h"
-#include "LangInfo.h"
+#include "i18n/LangInfo.h"
 #include "utils/log.h"
 #include "utils/URIUtils.h"
 #include "filesystem/File.h"
@@ -36,9 +36,9 @@
 #include "URL.h"
 #include "guilib/Geometry.h"
 #include "dialogs/GUIDialogKaiToast.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/DiscSettings.h"
-#include "utils/LangCodeExpander.h"
+#include "i18n/LangCodeExpander.h"
 #include "filesystem/SpecialProtocol.h"
 
 #ifdef TARGET_POSIX

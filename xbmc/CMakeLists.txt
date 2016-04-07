@@ -11,7 +11,6 @@ set(SOURCES Application.cpp
             GUIInfoManager.cpp
             GUILargeTextureManager.cpp
             GUIPassword.cpp
-            LangInfo.cpp
             MediaSource.cpp
             PasswordManager.cpp
             PlayListPlayer.cpp
@@ -47,7 +46,6 @@ set(HEADERS AppParamParser.h
             GUIUserMessages.h
             IFileItemListModifier.h
             IProgressCallback.h
-            LangInfo.h
             MediaSource.h
             PartyModeManager.h
             PasswordManager.h

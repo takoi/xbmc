@@ -21,7 +21,7 @@
 #include "Application.h"
 #include "interfaces/builtins/Builtins.h"
 #include "guilib/GUIWindowManager.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "dialogs/GUIDialogSelect.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"

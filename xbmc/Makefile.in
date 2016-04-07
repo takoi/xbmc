@@ -13,7 +13,6 @@ SRCS=Application.cpp \
      GUIInfoManager.cpp \
      GUILargeTextureManager.cpp \
      GUIPassword.cpp \
-     LangInfo.cpp \
      MediaSource.cpp \
      PasswordManager.cpp \
      PlayListPlayer.cpp \

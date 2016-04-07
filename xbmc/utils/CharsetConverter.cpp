@@ -26,8 +26,8 @@
 #include <iconv.h>
 #include <fribidi/fribidi.h>
 
-#include "guilib/LocalizeStrings.h"
-#include "LangInfo.h"
+#include "i18n/LocalizeStrings.h"
+#include "i18n/LangInfo.h"
 #include "log.h"
 #include "settings/lib/Setting.h"
 #include "settings/Settings.h"

@@ -25,7 +25,7 @@
 #include "Application.h"
 #include "FileItem.h"
 #include "guilib/GraphicContext.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/lib/Setting.h"
 #include "settings/Settings.h"

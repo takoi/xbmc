@@ -33,7 +33,7 @@
 #include "settings/Settings.h"
 #include "guilib/GUIWindowManager.h"
 #include "FileItem.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "view/ViewStateSettings.h"
 #include "utils/Variant.h"

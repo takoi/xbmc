@@ -64,7 +64,6 @@ set(SOURCES DDSImage.cpp
             GUIWrappingListContainer.cpp
             imagefactory.cpp
             IWindowManagerCallback.cpp
-            LocalizeStrings.cpp
             Resolution.cpp
             Shader.cpp
             StereoscopicsManager.cpp
@@ -155,7 +154,6 @@ set(HEADERS DDSImage.h
             IRenderingCallback.h
             ISliderCallback.h
             IWindowManagerCallback.h
-            LocalizeStrings.h
             Resolution.h
             Shader.h
             StereoscopicsManager.h

@@ -24,7 +24,7 @@
 #include "Application.h"
 #include "messaging/ApplicationMessenger.h"
 #include "dialogs/GUIDialogKaiToast.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "guilib/GUIWindowManager.h"
 #include "GUIPassword.h"
 #include "GUIUserMessages.h"

@@ -32,7 +32,7 @@
 #include "storage/MediaManager.h"
 #include "settings/MediaSourceSettings.h"
 #include "input/Key.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/URIUtils.h"
 #include "utils/StringUtils.h"
 #include "TextureCache.h"

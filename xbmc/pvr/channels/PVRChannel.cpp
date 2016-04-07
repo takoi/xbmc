@@ -21,7 +21,7 @@
 #include "FileItem.h"
 #include "epg/EpgContainer.h"
 #include "filesystem/File.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/log.h"
 #include "utils/StringUtils.h"

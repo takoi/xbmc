@@ -27,7 +27,7 @@
 #include "settings/SettingUtils.h"
 #include "settings/lib/Setting.h"
 #include "settings/lib/SettingSection.h"
-#include "guilib/LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"
 

@@ -20,7 +20,7 @@
 
 #include "Application.h"
 #include "messaging/ApplicationMessenger.h"
-#include "LocalizeStrings.h"
+#include "i18n/LocalizeStrings.h"
 #include "GUIKeyboardFactory.h"
 #include "dialogs/GUIDialogOK.h"
 #include "GUIUserMessages.h"

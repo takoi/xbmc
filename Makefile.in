@@ -59,6 +59,7 @@ DIRECTORY_ARCHIVES=$(VideoPlayer_ARCHIVES) \
                    xbmc/games/controllers/guicontrols/controllerguicontrols.a \
                    xbmc/games/controllers/windows/controllerwindows.a \
                    xbmc/guilib/guilib.a \
+                   xbmc/i18n/i18n.a \
                    xbmc/input/input.a \
                    xbmc/interfaces/builtins/builtins.a \
                    xbmc/interfaces/generic/interfaces-generic.a \
