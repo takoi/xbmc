@@ -28,7 +28,7 @@
 #include <vector>
 #include "Artist.h"
 #include "Song.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "utils/ScraperUrl.h"
 
 class TiXmlNode;

@@ -23,7 +23,7 @@
 #include "dialogs/GUIDialogExtendedProgressBar.h"
 #include "threads/CriticalSection.h"
 #include "threads/Timer.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include <vector>
 
 namespace ADDON

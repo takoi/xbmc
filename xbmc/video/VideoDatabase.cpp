@@ -72,7 +72,7 @@
 #include "video/VideoDbUrl.h"
 #include "video/windows/GUIWindowVideoBase.h"
 #include "VideoInfoScanner.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 using namespace dbiplus;
 using namespace XFILE;

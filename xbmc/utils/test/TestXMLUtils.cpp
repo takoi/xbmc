@@ -20,7 +20,7 @@
 
 #include "utils/XMLUtils.h"
 #include "utils/StringUtils.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 #include "gtest/gtest.h"
 

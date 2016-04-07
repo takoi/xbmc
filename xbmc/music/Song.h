@@ -24,7 +24,7 @@
 #pragma once
 
 #include "utils/ISerializable.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "music/EmbeddedArt.h"
 #include "music/tags/ReplayGain.h"
 #include "Artist.h"

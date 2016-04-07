@@ -25,7 +25,7 @@
 #include "addons/kodi-addon-dev-kit/include/kodi/xbmc_pvr_types.h"
 #include "PVRTimerInfoTag.h"
 #include "utils/Observer.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 class CFileItem;
 class CFileItemList;

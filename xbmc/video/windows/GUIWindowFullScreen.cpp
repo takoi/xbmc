@@ -39,7 +39,7 @@
 #include "guilib/LocalizeStrings.h"
 #include "threads/SingleLock.h"
 #include "utils/StringUtils.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "input/ButtonTranslator.h"
 #include "windowing/WindowingFactory.h"
 #include "cores/IPlayer.h"

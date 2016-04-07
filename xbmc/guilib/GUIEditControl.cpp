@@ -27,7 +27,7 @@
 #include "input/XBMC_vkeys.h"
 #include "input/Key.h"
 #include "LocalizeStrings.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "windowing/WindowingFactory.h"
 #include "utils/md5.h"
 #include "utils/Variant.h"

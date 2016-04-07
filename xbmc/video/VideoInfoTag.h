@@ -21,7 +21,7 @@
 
 #include <string>
 #include <vector>
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "utils/ScraperUrl.h"
 #include "utils/Fanart.h"
 #include "utils/ISortable.h"

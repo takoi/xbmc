@@ -19,7 +19,7 @@
  */
 
 #include "TimeUtils.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "threads/SystemClock.h"
 #include "guilib/GraphicContext.h"
 

@@ -35,7 +35,7 @@
  *
  */
 
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "addons/kodi-addon-dev-kit/include/kodi/xbmc_pvr_types.h"
 #include "video/VideoInfoTag.h"
 

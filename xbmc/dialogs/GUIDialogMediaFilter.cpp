@@ -22,7 +22,7 @@
 #include "DbUrl.h"
 #include "FileItem.h"
 #include "GUIUserMessages.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "guilib/GUIWindowManager.h"
 #include "guilib/LocalizeStrings.h"
 #include "music/MusicDatabase.h"

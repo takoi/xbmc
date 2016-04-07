@@ -43,7 +43,7 @@
 #include "pvr/timers/PVRTimerType.h"
 #include "threads/CriticalSection.h"
 #include "utils/ISerializable.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 class CFileItem;
 class CVariant;

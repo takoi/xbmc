@@ -13,6 +13,7 @@ SRCS += CPUInfo.cpp
 SRCS += Crc32.cpp
 SRCS += CryptThreading.cpp
 SRCS += DatabaseUtils.cpp
+SRCS += DateTime.cpp
 SRCS += EndianSwap.cpp
 SRCS += Environment.cpp
 SRCS += Fanart.cpp

@@ -28,7 +28,7 @@
 #include "utils/StringUtils.h"
 #include "utils/Fanart.h"
 #include "utils/ScraperUrl.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 class TiXmlNode;
 class CAlbum;

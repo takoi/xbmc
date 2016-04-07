@@ -23,7 +23,7 @@
 #include "utils/ISortable.h"
 #include "utils/IArchivable.h"
 #include "DllLibExif.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 #define SLIDE_FILE_NAME             900         // Note that not all image tags will be present for each image
 #define SLIDE_FILE_PATH             901

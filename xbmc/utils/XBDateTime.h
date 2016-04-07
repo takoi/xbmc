@@ -20,7 +20,7 @@
  *
  */
 
-#include "utils/IArchivable.h"
+#include "IArchivable.h"
 #include "system.h"
 #include <string>
 

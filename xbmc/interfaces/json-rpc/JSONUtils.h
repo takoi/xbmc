@@ -23,7 +23,7 @@
 #include <stdlib.h>
 
 #include "JSONRPCUtils.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "utils/SortUtils.h"
 #include "playlists/SmartPlayList.h"
 #include "utils/JSONVariantWriter.h"

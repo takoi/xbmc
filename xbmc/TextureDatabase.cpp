@@ -20,7 +20,7 @@
 
 #include "TextureDatabase.h"
 #include "utils/log.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "dbwrappers/dataset.h"
 #include "URL.h"
 #include "utils/StringUtils.h"

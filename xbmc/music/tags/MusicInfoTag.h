@@ -28,7 +28,7 @@ class CVariant;
 #include <vector>
 
 #include "ReplayGain.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "music/Album.h"
 #include "music/Artist.h"
 #include "music/EmbeddedArt.h"

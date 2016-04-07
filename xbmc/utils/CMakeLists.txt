@@ -71,6 +71,7 @@ set(SOURCES ActorProtocol.cpp
             Variant.cpp
             Vector.cpp
             Weather.cpp
+            XBDateTime.cpp
             XBMCTinyXML.cpp
             XMLUtils.cpp
             XSLTUtils.cpp)
@@ -159,6 +160,7 @@ set(HEADERS ActorProtocol.h
             Variant.h
             Vector.h
             Weather.h
+            XBDateTime.h
             XBMCTinyXML.h
             XMLUtils.h
             XSLTUtils.h)

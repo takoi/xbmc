@@ -32,7 +32,7 @@
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"
 #include "DllLibCPluff.h"
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 
 using namespace ADDON;
 

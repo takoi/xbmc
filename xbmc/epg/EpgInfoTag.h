@@ -22,7 +22,7 @@
 #include <memory>
 #include <string>
 
-#include "XBDateTime.h"
+#include "utils/XBDateTime.h"
 #include "addons/kodi-addon-dev-kit/include/kodi/xbmc_pvr_types.h"
 #include "pvr/channels/PVRChannel.h"
 #include "pvr/timers/PVRTimerInfoTag.h"
