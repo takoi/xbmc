@@ -18,7 +18,7 @@
  *
  */
 
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "GUIInfoManager.h"
 #include "dialogs/GUIDialogOK.h"
 #include "dialogs/GUIDialogYesNo.h"

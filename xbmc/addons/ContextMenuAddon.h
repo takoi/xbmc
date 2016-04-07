@@ -22,7 +22,7 @@
 #include <list>
 #include <memory>
 #include "Addon.h"
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuItem.h"
 
 typedef struct cp_cfg_element_t cp_cfg_element_t;
 

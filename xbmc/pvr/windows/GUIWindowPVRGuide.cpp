@@ -18,7 +18,7 @@
  *
  */
 
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "epg/GUIEPGGridContainer.h"
 #include "GUIUserMessages.h"
 #include "epg/EpgContainer.h"

@@ -46,7 +46,7 @@
 #include "settings/Settings.h"
 #include "input/Key.h"
 #include "guilib/LocalizeStrings.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "GUIUserMessages.h"
 #include "TextureCache.h"
 #include "music/MusicDatabase.h"

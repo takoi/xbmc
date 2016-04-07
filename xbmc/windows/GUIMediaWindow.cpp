@@ -21,7 +21,7 @@
 #include "GUIMediaWindow.h"
 #include "Application.h"
 #include "messaging/ApplicationMessenger.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "FileItemListModification.h"
 #include "GUIPassword.h"
 #include "GUIUserMessages.h"

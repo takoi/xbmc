@@ -18,7 +18,7 @@
  *
  */
 
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "dialogs/GUIDialogOK.h"
 #include "dialogs/GUIDialogProgress.h"
 #include "epg/EpgContainer.h"

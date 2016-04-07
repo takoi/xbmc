@@ -33,7 +33,7 @@
 #include "AudioDecoder.h"
 #include "AudioEncoder.h"
 #include "ContextMenuAddon.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "DllAudioDSP.h"
 #include "DllLibCPluff.h"

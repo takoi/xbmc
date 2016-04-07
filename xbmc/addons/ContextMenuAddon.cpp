@@ -20,8 +20,8 @@
 
 #include "ContextMenuAddon.h"
 #include "AddonManager.h"
-#include "ContextMenuManager.h"
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuManager.h"
+#include "contextmenu/ContextMenuItem.h"
 #include "GUIInfoManager.h"
 #include "interfaces/info/InfoBool.h"
 #include "utils/StringUtils.h"

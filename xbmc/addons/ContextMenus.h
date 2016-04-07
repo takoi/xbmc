@@ -19,7 +19,7 @@
  *
  */
 
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuItem.h"
 #include "FileItem.h"
 #include "GUIDialogAddonInfo.h"
 

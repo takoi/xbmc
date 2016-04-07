@@ -19,7 +19,7 @@
  */
 
 
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "GUIInfoManager.h"
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "epg/EpgContainer.h"

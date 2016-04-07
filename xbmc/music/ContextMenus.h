@@ -19,7 +19,7 @@
  *
  */
 
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuItem.h"
 
 
 namespace CONTEXTMENU

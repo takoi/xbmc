@@ -23,7 +23,7 @@
 #include "system.h"
 
 #include "Application.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "FileItem.h"
 #include "GUIPassword.h"
 #include "addons/AddonManager.h"

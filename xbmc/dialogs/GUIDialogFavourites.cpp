@@ -30,7 +30,7 @@
 #include "FileItem.h"
 #include "guilib/LocalizeStrings.h"
 #include "storage/MediaManager.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "utils/Variant.h"
 
 using namespace XFILE;

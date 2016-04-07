@@ -18,8 +18,8 @@
  *
  */
 
-#include "ContextMenuManager.h"
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuManager.h"
+#include "contextmenu/ContextMenuItem.h"
 #include "addons/Addon.h"
 #include "addons/AddonManager.h"
 #include "addons/ContextMenuAddon.h"

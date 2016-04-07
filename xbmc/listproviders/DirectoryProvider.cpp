@@ -24,7 +24,7 @@
 #include <utility>
 
 #include "addons/GUIDialogAddonInfo.h"
-#include "ContextMenuManager.h"
+#include "contextmenu/ContextMenuManager.h"
 #include "FileItem.h"
 #include "filesystem/Directory.h"
 #include "filesystem/FavouritesDirectory.h"

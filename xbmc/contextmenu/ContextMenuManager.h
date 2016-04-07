@@ -23,7 +23,7 @@
 #include <vector>
 
 #include "addons/ContextMenuAddon.h"
-#include "ContextMenuItem.h"
+#include "contextmenu/ContextMenuItem.h"
 #include "dialogs/GUIDialogContextMenu.h"
 
 
