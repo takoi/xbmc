@@ -140,6 +140,7 @@ set(HEADERS ActorProtocol.h
             ScraperUrl.h
             Screenshot.h
             SeekHandler.h
+            SortFileItem.h
             SortUtils.h
             Speed.h
             Splash.h

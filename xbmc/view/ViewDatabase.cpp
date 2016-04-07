@@ -23,7 +23,7 @@
 #include <utility>
 
 #include "dbwrappers/dataset.h"
-#include "SortFileItem.h"
+#include "utils/SortFileItem.h"
 #include "system.h"
 #include "utils/LegacyPathTranslation.h"
 #include "utils/log.h"

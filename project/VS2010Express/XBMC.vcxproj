@@ -2282,7 +2282,6 @@
     <ClInclude Include="..\..\xbmc\settings\AdvancedSettings.h" />
     <ClInclude Include="..\..\xbmc\settings\Settings.h" />
     <ClInclude Include="..\..\xbmc\settings\VideoSettings.h" />
-    <ClInclude Include="..\..\xbmc\SortFileItem.h" />
     <ClInclude Include="..\..\xbmc\storage\AutorunMediaJob.h" />
     <ClInclude Include="..\..\xbmc\storage\cdioSupport.h" />
     <ClInclude Include="..\..\xbmc\storage\IoSupport.h" />
@@ -2365,6 +2364,7 @@
     <ClInclude Include="..\..\xbmc\utils\ScraperParser.h" />
     <ClInclude Include="..\..\xbmc\utils\ScraperUrl.h" />
     <ClInclude Include="..\..\xbmc\utils\SeekHandler.h" />
+    <ClInclude Include="..\..\xbmc\utils\SortFileItem.h" />
     <ClInclude Include="..\..\xbmc\utils\SortUtils.h" />
     <ClInclude Include="..\..\xbmc\utils\Splash.h" />
     <ClInclude Include="..\..\xbmc\utils\Stopwatch.h" />

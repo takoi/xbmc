@@ -24,7 +24,7 @@
 #include <memory>
 
 #include "DatabaseUtils.h"
-#include "SortFileItem.h"
+#include "utils/SortFileItem.h"
 #include "LabelFormatter.h"
 
 typedef enum {

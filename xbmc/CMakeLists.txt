@@ -65,7 +65,6 @@ set(HEADERS AppParamParser.h
             SectionLoader.h
             ServiceBroker.h
             ServiceManager.h
-            SortFileItem.h
             TextureCache.h
             TextureCacheJob.h
             TextureDatabase.h
