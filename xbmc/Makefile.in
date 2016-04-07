@@ -32,7 +32,6 @@ SRCS=Application.cpp \
      TextureCacheJob.cpp \
      TextureDatabase.cpp \
      ThumbLoader.cpp \
-     ThumbnailCache.cpp \
      URL.cpp \
      Util.cpp \
      XBApplicationEx.cpp \
