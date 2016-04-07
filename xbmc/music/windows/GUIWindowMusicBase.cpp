@@ -62,7 +62,7 @@
 #include "guiinfo/GUIInfoLabels.h"
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
 #include "cores/IPlayer.h"
-#include "CueDocument.h"
+#include "music/CueDocument.h"
 #include "Autorun.h"
 
 #ifdef TARGET_POSIX

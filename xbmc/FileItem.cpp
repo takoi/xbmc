@@ -37,7 +37,7 @@
 #include "filesystem/VideoDatabaseDirectory.h"
 #include "filesystem/VideoDatabaseDirectory/QueryParams.h"
 #include "music/tags/MusicInfoTagLoaderFactory.h"
-#include "CueDocument.h"
+#include "music/CueDocument.h"
 #include "video/VideoDatabase.h"
 #include "music/MusicDatabase.h"
 #include "epg/Epg.h"

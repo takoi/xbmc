@@ -1,6 +1,7 @@
 SRCS=Album.cpp \
      Artist.cpp \
      ContextMenus.cpp \
+     CueDocument.cpp \
      GUIViewStateMusic.cpp \
      MusicDatabase.cpp \
      MusicDbUrl.cpp \

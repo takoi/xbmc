@@ -7,7 +7,6 @@ SRCS=Application.cpp \
      ContextMenuItem.cpp \
      ContextMenuManager.cpp \
      CompileInfo.cpp \
-     CueDocument.cpp \
      DatabaseManager.cpp \
      DbUrl.cpp \
      DynamicDll.cpp \

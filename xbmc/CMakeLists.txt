@@ -6,7 +6,6 @@ set(SOURCES Application.cpp
             BackgroundInfoLoader.cpp
             ContextMenuItem.cpp
             ContextMenuManager.cpp
-            CueDocument.cpp
             DatabaseManager.cpp
             DbUrl.cpp
             DynamicDll.cpp
@@ -44,7 +43,6 @@ set(HEADERS AppParamParser.h
             CompileInfo.h
             ContextMenuItem.h
             ContextMenuManager.h
-            CueDocument.h
             DatabaseManager.h
             DbUrl.h
             DllPaths.h

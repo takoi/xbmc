@@ -2199,7 +2199,6 @@
     <ClCompile Include="..\..\xbmc\Autorun.cpp" />
     <ClCompile Include="..\..\xbmc\AutoSwitch.cpp" />
     <ClCompile Include="..\..\xbmc\DynamicDll.cpp" />
-    <ClCompile Include="..\..\xbmc\CueDocument.cpp" />
     <ClCompile Include="..\..\xbmc\ContextMenuItem.cpp" />
     <ClCompile Include="..\..\xbmc\ContextMenuManager.cpp" />
     <ClCompile Include="..\..\xbmc\FileItem.cpp" />
@@ -3042,6 +3041,9 @@
     </ClCompile>
     <ClCompile Include="..\..\xbmc\input\KeyboardLayoutManager.cpp">
       <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xbmc\music\CueDocument.cpp">
+      <Filter>music</Filter>
     </ClCompile>
     <ClCompile Include="..\..\xbmc\music\CueInfoLoader.cpp">
       <Filter>music</Filter>
@@ -5421,7 +5423,6 @@
     <ClInclude Include="..\..\xbmc\Autorun.h" />
     <ClInclude Include="..\..\xbmc\AutoSwitch.h" />
     <ClInclude Include="..\..\xbmc\DynamicDll.h" />
-    <ClInclude Include="..\..\xbmc\CueDocument.h" />
     <ClInclude Include="..\..\xbmc\ContextMenuItem.h" />
     <ClInclude Include="..\..\xbmc\ContextMenuManager.h" />
     <ClInclude Include="..\..\xbmc\FileItem.h" />
@@ -6123,6 +6124,9 @@
     </ClInclude>
     <ClInclude Include="..\..\xbmc\video\jobs\VideoLibraryCleaningJob.h">
       <Filter>video\jobs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\xbmc\music\CueDocument.h">
+      <Filter>music</Filter>
     </ClInclude>
     <ClInclude Include="..\..\xbmc\music\CueInfoLoader.h">
       <Filter>music</Filter>

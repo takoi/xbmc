@@ -1,6 +1,7 @@
 set(SOURCES Album.cpp
             Artist.cpp
             ContextMenus.cpp
+            CueDocument.cpp
             CueInfoLoader.cpp
             GUIViewStateMusic.cpp
             MusicDatabase.cpp
@@ -12,6 +13,7 @@ set(SOURCES Album.cpp
 set(HEADERS Album.h
             Artist.h
             ContextMenus.h
+            CueDocument.h
             CueInfoLoader.h
             EmbeddedArt.h
             GUIViewStateMusic.h
