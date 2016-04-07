@@ -16,7 +16,6 @@ SRCS=Application.cpp \
      GUIPassword.cpp \
      LangInfo.cpp \
      MediaSource.cpp \
-     NfoFile.cpp \
      PasswordManager.cpp \
      PlayListPlayer.cpp \
      PartyModeManager.cpp \

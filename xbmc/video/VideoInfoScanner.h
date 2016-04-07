@@ -19,7 +19,7 @@
  *
  */
 #include "media/InfoScanner.h"
-#include "NfoFile.h"
+#include "media/NfoFile.h"
 #include "VideoDatabase.h"
 #include "addons/Scraper.h"
 

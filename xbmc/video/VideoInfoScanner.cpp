@@ -39,7 +39,7 @@
 #include "interfaces/AnnouncementManager.h"
 #include "messaging/ApplicationMessenger.h"
 #include "messaging/helpers/DialogHelper.h"
-#include "NfoFile.h"
+#include "media/NfoFile.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/Settings.h"
 #include "TextureCache.h"

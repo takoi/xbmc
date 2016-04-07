@@ -19,7 +19,7 @@
  */
 
 #include "VideoLibraryRefreshingJob.h"
-#include "NfoFile.h"
+#include "media/NfoFile.h"
 #include "TextureDatabase.h"
 #include "addons/Scraper.h"
 #include "dialogs/GUIDialogExtendedProgressBar.h"

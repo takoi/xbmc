@@ -31,7 +31,7 @@
 #include "dialogs/GUIDialogYesNo.h"
 #include "playlists/PlayListFactory.h"
 #include "Application.h"
-#include "NfoFile.h"
+#include "media/NfoFile.h"
 #include "PlayListPlayer.h"
 #include "GUIPassword.h"
 #include "filesystem/StackDirectory.h"

@@ -2205,7 +2205,6 @@
     <ClCompile Include="..\..\xbmc\GUIInfoManager.cpp" />
     <ClCompile Include="..\..\xbmc\GUIPassword.cpp" />
     <ClCompile Include="..\..\xbmc\LangInfo.cpp" />
-    <ClCompile Include="..\..\xbmc\NfoFile.cpp" />
     <ClCompile Include="..\..\xbmc\PartyModeManager.cpp" />
     <ClCompile Include="..\..\xbmc\PasswordManager.cpp" />
     <ClCompile Include="..\..\xbmc\SectionLoader.cpp" />
@@ -2850,6 +2849,9 @@
       <Filter>media</Filter>
     </ClCompile>
     <ClCompile Include="..\..\xbmc\media\MediaType.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xbmc\media\NfoFile.cpp">
       <Filter>media</Filter>
     </ClCompile>
     <ClCompile Include="..\..\xbmc\settings\dialogs\GUIDialogSettingsBase.cpp">
@@ -5434,7 +5436,6 @@
     <ClInclude Include="..\..\xbmc\IProgressCallback.h" />
     <ClInclude Include="..\..\xbmc\LangInfo.h" />
     <ClInclude Include="..\..\xbmc\MediaSource.h" />
-    <ClInclude Include="..\..\xbmc\NfoFile.h" />
     <ClInclude Include="..\..\xbmc\PartyModeManager.h" />
     <ClInclude Include="..\..\xbmc\PasswordManager.h" />
     <ClInclude Include="..\..\xbmc\SectionLoader.h" />
@@ -5997,6 +5998,9 @@
       <Filter>media</Filter>
     </ClInclude>
     <ClInclude Include="..\..\xbmc\media\MediaType.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\xbmc\media\NfoFile.h">
       <Filter>media</Filter>
     </ClInclude>
     <ClInclude Include="..\..\xbmc\guilib\ISliderCallback.h">

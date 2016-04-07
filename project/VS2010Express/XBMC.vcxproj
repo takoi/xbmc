@@ -720,6 +720,7 @@
     <ClCompile Include="..\..\xbmc\MediaSource.cpp" />
     <ClCompile Include="..\..\xbmc\media\InfoScanner.cpp" />
     <ClCompile Include="..\..\xbmc\media\MediaType.cpp" />
+    <ClCompile Include="..\..\xbmc\media\NfoFile.cpp" />
     <ClCompile Include="..\..\xbmc\messaging\ApplicationMessenger.cpp" />
     <ClCompile Include="..\..\xbmc\messaging\helpers\DialogHelper.cpp" />
     <ClCompile Include="..\..\xbmc\music\Album.cpp" />
@@ -801,7 +802,6 @@
     <ClCompile Include="..\..\xbmc\network\windows\NetworkWin32.cpp" />
     <ClCompile Include="..\..\xbmc\network\Zeroconf.cpp" />
     <ClCompile Include="..\..\xbmc\network\ZeroconfBrowser.cpp" />
-    <ClCompile Include="..\..\xbmc\NfoFile.cpp" />
     <ClCompile Include="..\..\xbmc\PartyModeManager.cpp" />
     <ClCompile Include="..\..\xbmc\PasswordManager.cpp" />
     <ClCompile Include="..\..\xbmc\peripherals\bus\PeripheralBus.cpp" />
@@ -1265,6 +1265,7 @@
     <ClInclude Include="..\..\xbmc\platform\MessagePrinter.h" />
     <ClInclude Include="..\..\xbmc\media\InfoScanner.h" />
     <ClInclude Include="..\..\xbmc\media\MediaType.h" />
+    <ClInclude Include="..\..\xbmc\media\NfoFile.h" />
     <ClInclude Include="..\..\xbmc\messaging\ApplicationMessenger.h" />
     <ClInclude Include="..\..\xbmc\messaging\helpers\DialogHelper.h" />
     <ClInclude Include="..\..\xbmc\messaging\IMessageTarget.h" />
@@ -2202,7 +2203,6 @@
     <ClInclude Include="..\..\xbmc\network\windows\NetworkWin32.h" />
     <ClInclude Include="..\..\xbmc\network\Zeroconf.h" />
     <ClInclude Include="..\..\xbmc\network\ZeroconfBrowser.h" />
-    <ClInclude Include="..\..\xbmc\NfoFile.h" />
     <ClInclude Include="..\..\xbmc\PartyModeManager.h" />
     <ClInclude Include="..\..\xbmc\PasswordManager.h" />
     <ClInclude Include="..\..\xbmc\peripherals\bus\PeripheralBus.h" />

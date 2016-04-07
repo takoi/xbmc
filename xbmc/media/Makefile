@@ -1,5 +1,6 @@
 SRCS=InfoScanner.cpp \
      MediaType.cpp \
+     NfoFile.cpp \
 
 LIB=media.a
 

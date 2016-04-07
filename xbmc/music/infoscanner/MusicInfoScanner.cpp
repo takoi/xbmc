@@ -47,7 +47,7 @@
 #include "music/tags/MusicInfoTagLoaderFactory.h"
 #include "MusicAlbumInfo.h"
 #include "MusicInfoScraper.h"
-#include "NfoFile.h"
+#include "media/NfoFile.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/Settings.h"
 #include "TextureCache.h"
