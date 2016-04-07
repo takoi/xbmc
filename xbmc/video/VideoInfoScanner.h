@@ -18,7 +18,7 @@
  *  <http://www.gnu.org/licenses/>.
  *
  */
-#include "InfoScanner.h"
+#include "media/InfoScanner.h"
 #include "NfoFile.h"
 #include "VideoDatabase.h"
 #include "addons/Scraper.h"

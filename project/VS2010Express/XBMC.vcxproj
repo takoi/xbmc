@@ -583,7 +583,6 @@
     <ClCompile Include="..\..\xbmc\guilib\XBTF.cpp" />
     <ClCompile Include="..\..\xbmc\guilib\XBTFReader.cpp" />
     <ClCompile Include="..\..\xbmc\GUIPassword.cpp" />
-    <ClCompile Include="..\..\xbmc\InfoScanner.cpp" />
     <ClCompile Include="..\..\xbmc\input\ButtonTranslator.cpp" />
     <ClCompile Include="..\..\xbmc\input\InertialScrollingHandler.cpp" />
     <ClCompile Include="..\..\xbmc\input\InputCodingTableKorean.cpp" />
@@ -719,6 +718,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Testsuite|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\xbmc\MediaSource.cpp" />
+    <ClCompile Include="..\..\xbmc\media\InfoScanner.cpp" />
     <ClCompile Include="..\..\xbmc\media\MediaType.cpp" />
     <ClCompile Include="..\..\xbmc\messaging\ApplicationMessenger.cpp" />
     <ClCompile Include="..\..\xbmc\messaging\helpers\DialogHelper.cpp" />
@@ -1158,7 +1158,6 @@
     <ClInclude Include="..\..\xbmc\guilib\ISliderCallback.h" />
     <ClInclude Include="..\..\xbmc\IFileItemListModifier.h" />
     <ClInclude Include="..\..\xbmc\input\InputCodingTableKorean.h" />
-    <ClInclude Include="..\..\xbmc\InfoScanner.h" />
     <ClInclude Include="..\..\xbmc\input\InputManager.h" />
     <ClInclude Include="..\..\xbmc\input\joysticks\DriverPrimitive.h" />
     <ClInclude Include="..\..\xbmc\input\joysticks\IKeymapHandler.h" />
@@ -1264,6 +1263,7 @@
     <ClInclude Include="..\..\xbmc\peripherals\EventScanner.h" />
     <ClInclude Include="..\..\xbmc\peripherals\EventScanRate.h" />
     <ClInclude Include="..\..\xbmc\platform\MessagePrinter.h" />
+    <ClInclude Include="..\..\xbmc\media\InfoScanner.h" />
     <ClInclude Include="..\..\xbmc\media\MediaType.h" />
     <ClInclude Include="..\..\xbmc\messaging\ApplicationMessenger.h" />
     <ClInclude Include="..\..\xbmc\messaging\helpers\DialogHelper.h" />

@@ -2846,6 +2846,9 @@
     <ClCompile Include="..\..\xbmc\cores\FFmpeg.cpp">
       <Filter>cores</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\xbmc\media\InfoScanner.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\xbmc\media\MediaType.cpp">
       <Filter>media</Filter>
     </ClCompile>
@@ -3265,7 +3268,6 @@
     <ClCompile Include="..\..\xbmc\filesystem\VideoDatabaseDirectory\DirectoryNodeInProgressTvShows.cpp">
       <Filter>filesystem\VideoDatabaseDirectory</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\xbmc\InfoScanner.cpp" />
     <ClCompile Include="..\..\xbmc\music\windows\MusicFileItemListModifier.cpp">
       <Filter>music\windows</Filter>
     </ClCompile>
@@ -5991,6 +5993,9 @@
     <ClInclude Include="..\..\xbmc\cores\FFmpeg.h">
       <Filter>cores</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\xbmc\media\InfoScanner.h">
+      <Filter>media</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\xbmc\media\MediaType.h">
       <Filter>media</Filter>
     </ClInclude>
@@ -6448,7 +6453,6 @@
     <ClInclude Include="..\..\xbmc\filesystem\VideoDatabaseDirectory\DirectoryNodeInProgressTvShows.h">
       <Filter>filesystem\VideoDatabaseDirectory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\xbmc\InfoScanner.h" />
     <ClInclude Include="..\..\xbmc\music\windows\MusicFileItemListModifier.h">
       <Filter>music\windows</Filter>
     </ClInclude>

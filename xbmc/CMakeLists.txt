@@ -12,7 +12,6 @@ set(SOURCES Application.cpp
             GUIInfoManager.cpp
             GUILargeTextureManager.cpp
             GUIPassword.cpp
-            InfoScanner.cpp
             LangInfo.cpp
             MediaSource.cpp
             NfoFile.cpp
@@ -51,7 +50,6 @@ set(HEADERS AppParamParser.h
             GUIUserMessages.h
             IFileItemListModifier.h
             IProgressCallback.h
-            InfoScanner.h
             LangInfo.h
             MediaSource.h
             NfoFile.h

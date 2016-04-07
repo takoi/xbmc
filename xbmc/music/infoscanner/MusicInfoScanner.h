@@ -18,7 +18,7 @@
  *  <http://www.gnu.org/licenses/>.
  *
  */
-#include "InfoScanner.h"
+#include "media/InfoScanner.h"
 #include "MusicAlbumInfo.h"
 #include "MusicInfoScraper.h"
 #include "music/MusicDatabase.h"

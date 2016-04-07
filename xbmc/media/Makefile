@@ -1,4 +1,5 @@
-SRCS=MediaType.cpp \
+SRCS=InfoScanner.cpp \
+     MediaType.cpp \
 
 LIB=media.a
 

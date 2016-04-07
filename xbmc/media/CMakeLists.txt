@@ -1,5 +1,7 @@
-set(SOURCES MediaType.cpp)
+set(SOURCES InfoScanner.cpp
+            MediaType.cpp)
 
-set(HEADERS MediaType.h)
+set(HEADERS InfoScanner.h
+            MediaType.h)
 
 core_add_library(media)
