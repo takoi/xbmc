@@ -49,8 +49,6 @@ public:
   std::pair<ADDON::AddonVersion, std::string> GetAddonVersion(const std::string &id);
 
   int AddRepository(const std::string& id, const ADDON::VECADDONS& addons, const std::string& checksum, const ADDON::AddonVersion& version);
-  void DeleteRepository(const std::string& id);
-  void DeleteRepository(int id);
   int GetRepoChecksum(const std::string& id, std::string& checksum);
 
   /*!
@@ -148,6 +146,7 @@ protected:
 
   bool GetAddon(int id, ADDON::AddonPtr& addon);
   int AddAddon(const ADDON::AddonPtr& item, int idRepo);
+  void DeleteRepository(const std::string& id);
 
   /* keep in sync with the addon table */
   enum AddonFields
