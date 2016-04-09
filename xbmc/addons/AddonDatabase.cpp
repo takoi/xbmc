@@ -714,39 +714,21 @@ void CAddonDatabase::DeleteRepository(const std::string& id)
     if (NULL == m_pDB.get()) return;
     if (NULL == m_pDS.get()) return;
 
-    std::string sql = PrepareSQL("select id from repo where addonID='%s'",id.c_str());
-    m_pDS->query(sql);
+    m_pDS->query(PrepareSQL("SELECT id FROM repo WHERE addonID='%s'", id.c_str()));
     if (!m_pDS->eof())
-      DeleteRepository(m_pDS->fv(0).get_asInt());
+      return;
+
+    int idRepo = m_pDS->fv(0).get_asInt();
+
+    m_pDS->exec(PrepareSQL("DELETE FROM repo WHERE id=%i", idRepo));
+    m_pDS->exec(PrepareSQL("DELETE FROM addon WHERE id IN (SELECT idAddon FROM addonlinkrepo WHERE idRepo=%i)", idRepo));
+    m_pDS->exec(PrepareSQL("DELETE FROM addonextra WHERE id IN (SELECT idAddon FROM addonlinkrepo WHERE idRepo=%i)", idRepo));
+    m_pDS->exec(PrepareSQL("DELETE FROM dependencies WHERE id IN (SELECT idAddon FROM addonlinkrepo WHERE idRepo=%i)", idRepo));
+    m_pDS->exec(PrepareSQL("DELETE FROM addonlinkrepo WHERE idRepo=%i", idRepo));
   }
   catch (...)
   {
     CLog::Log(LOGERROR, "%s failed on repo '%s'", __FUNCTION__, id.c_str());
-  }
-}
-
-void CAddonDatabase::DeleteRepository(int idRepo)
-{
-  try
-  {
-    if (NULL == m_pDB.get()) return;
-    if (NULL == m_pDS.get()) return;
-
-    std::string sql = PrepareSQL("delete from repo where id=%i",idRepo);
-    m_pDS->exec(sql);
-    sql = PrepareSQL("delete from addon where id in (select idAddon from addonlinkrepo where idRepo=%i)",idRepo);
-    m_pDS->exec(sql);
-    sql = PrepareSQL("delete from addonextra where id in (select idAddon from addonlinkrepo where idRepo=%i)",idRepo);
-    m_pDS->exec(sql);
-    sql = PrepareSQL("delete from dependencies where id in (select idAddon from addonlinkrepo where idRepo=%i)",idRepo);
-    m_pDS->exec(sql);
-    sql = PrepareSQL("delete from addonlinkrepo where idRepo=%i",idRepo);
-    m_pDS->exec(sql);
-
-  }
-  catch (...)
-  {
-    CLog::Log(LOGERROR, "%s failed on repo %i", __FUNCTION__, idRepo);
   }
 }
 
@@ -760,7 +742,7 @@ int CAddonDatabase::AddRepository(const std::string& id, const VECADDONS& addons
     std::string sql;
     int idRepo = GetRepoChecksum(id,sql);
     if (idRepo > -1)
-      DeleteRepository(idRepo);
+      DeleteRepository(id);
 
     if (!SetLastChecked(id, version, CDateTime::GetCurrentDateTime().GetAsDBDateTime()))
       return -1;
