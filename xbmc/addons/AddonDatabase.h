@@ -48,7 +48,8 @@ public:
   /*! Get the most recent version for an add-on and the repo id it belongs to*/
   std::pair<ADDON::AddonVersion, std::string> GetAddonVersion(const std::string &id);
 
-  int AddRepository(const std::string& id, const ADDON::VECADDONS& addons, const std::string& checksum, const ADDON::AddonVersion& version);
+  bool UpdateRepositoryContent(const std::string& id, const ADDON::VECADDONS& addons,
+      const std::string& checksum, const ADDON::AddonVersion& version);
   int GetRepoChecksum(const std::string& id, std::string& checksum);
 
   /*!

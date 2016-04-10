@@ -732,40 +732,35 @@ void CAddonDatabase::DeleteRepository(const std::string& id)
   }
 }
 
-int CAddonDatabase::AddRepository(const std::string& id, const VECADDONS& addons, const std::string& checksum, const AddonVersion& version)
+bool CAddonDatabase::UpdateRepositoryContent(const std::string& id, const VECADDONS& addons,
+    const std::string& checksum, const AddonVersion& version)
 {
   try
   {
-    if (NULL == m_pDB.get()) return -1;
-    if (NULL == m_pDS.get()) return -1;
+    if (NULL == m_pDB.get()) return false;
+    if (NULL == m_pDS.get()) return false;
 
-    std::string sql;
-    int idRepo = GetRepoChecksum(id,sql);
-    if (idRepo > -1)
-      DeleteRepository(id);
+    DeleteRepository(id);
 
     if (!SetLastChecked(id, version, CDateTime::GetCurrentDateTime().GetAsDBDateTime()))
-      return -1;
+      return false;
 
-    BeginTransaction();
+    m_pDB->start_transaction();
+    m_pDS->exec(PrepareSQL("UPDATE repo SET checksum='%s' WHERE addonID='%s'", checksum.c_str(), id.c_str()));
 
-    sql = PrepareSQL("UPDATE repo SET checksum='%s', version='%s' WHERE addonID='%s'",
-        checksum.c_str(), version.asString().c_str(), id.c_str());
+    int idRepo = static_cast<int>(m_pDS->lastinsertid());
+    for (const auto& addon : addons)
+      AddAddon(addon, idRepo);
 
-    m_pDS->exec(sql);
-    idRepo = (int)m_pDS->lastinsertid();
-    for (unsigned int i=0;i<addons.size();++i)
-      AddAddon(addons[i],idRepo);
-
-    CommitTransaction();
-    return idRepo;
+    m_pDB->commit_transaction();
+    return true;
   }
   catch (...)
   {
     CLog::Log(LOGERROR, "%s failed on repo '%s'", __FUNCTION__, id.c_str());
     RollbackTransaction();
   }
-  return -1;
+  return false;
 }
 
 int CAddonDatabase::GetRepoChecksum(const std::string& id, std::string& checksum)
