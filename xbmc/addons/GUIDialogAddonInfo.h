@@ -60,6 +60,7 @@ private:
   void OnChangeLog();
   void OnSelect();
   void OnToggleAutoUpdates();
+  void PromptForVersion(std::vector<std::pair<ADDON::AddonVersion, std::string>> versions);
 
   /*! Returns true if current addon can be opened (i.e is a plugin)*/
   bool CanOpen() const;
