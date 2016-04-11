@@ -28,6 +28,7 @@
 #include "filesystem/Directory.h"
 #include "GUIDialogAddonSettings.h"
 #include "cores/AudioEngine/DSPAddons/ActiveAEDSP.h"
+#include "dialogs/GUIDialogBusy.h"
 #include "dialogs/GUIDialogContextMenu.h"
 #include "dialogs/GUIDialogTextViewer.h"
 #include "dialogs/GUIDialogOK.h"
@@ -436,11 +437,14 @@ void CGUIDialogAddonInfo::OnEnableDisable()
   {
     if (PromptIfDependency(24075, 24091))
       return; //required. can't disable
-
-    CAddonMgr::GetInstance().DisableAddon(m_localAddon->ID());
   }
-  else
-    CAddonMgr::GetInstance().EnableAddon(m_localAddon->ID());
+
+  CGUIDialogBusy::Await([this](){
+    if (m_addonEnabled)
+      CAddonMgr::GetInstance().DisableAddon(m_localAddon->ID());
+    else
+      CAddonMgr::GetInstance().EnableAddon(m_localAddon->ID());
+  });
 
   UpdateControls();
   g_windowManager.SendMessage(GUI_MSG_NOTIFY_ALL, 0, 0, GUI_MSG_UPDATE);
