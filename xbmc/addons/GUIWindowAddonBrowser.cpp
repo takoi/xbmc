@@ -176,7 +176,11 @@ bool CGUIWindowAddonBrowser::OnClick(int iItem, const std::string &player)
       g_mediaManager.GetNetworkLocations(shares);
       std::string path;
       if (CGUIDialogFileBrowser::ShowAndGetFile(shares, "*.zip", g_localizeStrings.Get(24041), path))
-        CAddonInstaller::GetInstance().InstallFromZip(path);
+      {
+        CGUIDialogBusy::Await([&path](){
+          CAddonInstaller::GetInstance().InstallFromZip(path);
+        });
+      }
     }
     return true;
   }
