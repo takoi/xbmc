@@ -155,14 +155,6 @@ void CGUIWindowAddonBrowser::SetProperties()
     lastUpdated.GetAsLocalizedDateTime() : g_localizeStrings.Get(21337));
 }
 
-class UpdateAddons : public IRunnable
-{
-  virtual void Run()
-  {
-    CAddonInstaller::GetInstance().InstallUpdates(true);
-  }
-};
-
 
 bool CGUIWindowAddonBrowser::OnClick(int iItem, const std::string &player)
 {
@@ -190,8 +182,10 @@ bool CGUIWindowAddonBrowser::OnClick(int iItem, const std::string &player)
   }
   if (item->GetPath() == "addons://update_all/")
   {
-    UpdateAddons updater;
-    return CGUIDialogBusy::Wait(&updater);
+    CGUIDialogBusy::Await([](){
+      CAddonInstaller::GetInstance().InstallUpdates(true);
+    });
+    return true;
   }
   if (!item->m_bIsFolder)
   {
