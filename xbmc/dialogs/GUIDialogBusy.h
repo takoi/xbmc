@@ -21,8 +21,8 @@
  */
 
 #include "guilib/GUIDialog.h"
+#include "utils/JobManager.h"
 
-class IRunnable;
 class CEvent;
 
 class CGUIDialogBusy: public CGUIDialog
@@ -40,13 +40,17 @@ public:
 
   bool IsCanceled() { return m_bCanceled; }
 
-  /*! \brief Wait for a runnable to execute off-thread.
-   Creates a thread to run the given runnable, and while waiting
-   it displays the busy dialog.
-   \param runnable the IRunnable to run.
-   \return true if the runnable completes, false if the user cancels early.
-   */
-  static bool Wait(IRunnable *runnable);
+  /*! \brief Wait for a runnable to execute off-thread. Cannot be cancelled. */
+  template<typename F>
+  static void Await(F&& fn)
+  {
+    CEvent complete(true);
+    CJobManager::GetInstance().Submit([&](){
+      fn();
+      complete.Set();
+    });
+    CGUIDialogBusy::WaitOnEvent(complete, 1, false);
+  }
 
   /*! \brief Wait on an event while displaying the busy dialog.
    Throws up the busy dialog after the given time.

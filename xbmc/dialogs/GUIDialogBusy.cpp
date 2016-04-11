@@ -21,42 +21,9 @@
 #include "GUIDialogBusy.h"
 #include "guilib/GUIProgressControl.h"
 #include "guilib/GUIWindowManager.h"
-#include "threads/Thread.h"
 
 #define PROGRESS_CONTROL 10
 
-class CBusyWaiter : public CThread
-{
-  std::shared_ptr<CEvent>  m_done;
-public:
-  CBusyWaiter(IRunnable *runnable) : CThread(runnable, "waiting"), m_done(new CEvent()) {  }
-  
-  bool Wait()
-  {
-    std::shared_ptr<CEvent> e_done(m_done);
-
-    Create();
-    return CGUIDialogBusy::WaitOnEvent(*e_done);
-  }
-
-  // 'this' is actually deleted from the thread where it's on the stack
-  virtual void Process()
-  {
-    std::shared_ptr<CEvent> e_done(m_done);
-
-    CThread::Process();
-    (*e_done).Set();
-  }
-
-};
-
-bool CGUIDialogBusy::Wait(IRunnable *runnable)
-{
-  if (!runnable)
-    return false;
-  CBusyWaiter waiter(runnable);
-  return waiter.Wait();
-}
 
 bool CGUIDialogBusy::WaitOnEvent(CEvent &event, unsigned int displaytime /* = 100 */, bool allowCancel /* = true */)
 {
