@@ -265,21 +265,20 @@ void CGUIDialogAddonInfo::PromptForVersion(std::vector<std::pair<AddonVersion, s
     selected = dialog->GetSelectedItem();
   }
 
+  Close();
+
   auto version = versions[selected];
   auto addonId = m_item->GetAddonInfo()->ID();
 
-  CGUIDialogBusy::Await([&](){
-    //turn auto updating off if downgrading
-    if (m_localAddon && m_localAddon->Version() > version.first)
-      CAddonMgr::GetInstance().AddToUpdateBlacklist(m_localAddon->ID());
+  //turn auto updating off if downgrading
+  if (m_localAddon && m_localAddon->Version() > version.first)
+    CAddonMgr::GetInstance().AddToUpdateBlacklist(m_localAddon->ID());
 
-    if (m_localAddon && version.second == LOCAL_CACHE)
-      CAddonInstaller::GetInstance().InstallFromZip(StringUtils::Format("special://home/addons/packages/%s-%s.zip",
-          addonId.c_str(), version.first.asString().c_str()));
-    else
-      CAddonInstaller::GetInstance().Install(addonId, version.first, version.second);
-  });
-  Close();
+  if (m_localAddon && version.second == LOCAL_CACHE)
+    CAddonInstaller::GetInstance().InstallFromZip(StringUtils::Format("special://home/addons/packages/%s-%s.zip",
+        addonId.c_str(), version.first.asString().c_str()));
+  else
+    CAddonInstaller::GetInstance().Install(addonId, version.first, version.second);
 }
 
 void CGUIDialogAddonInfo::OnUpdate()
@@ -289,35 +288,33 @@ void CGUIDialogAddonInfo::OnUpdate()
 
   std::vector<std::pair<AddonVersion, std::string>> versions;
 
-  CGUIDialogBusy::Await([&](){
-    CAddonDatabase database;
-    database.Open();
-    database.GetAvailableVersions(m_localAddon->ID(), versions);
+  CAddonDatabase database;
+  database.Open();
+  database.GetAvailableVersions(m_localAddon->ID(), versions);
 
-    CFileItemList items;
-    if (XFILE::CDirectory::GetDirectory("special://home/addons/packages/", items, ".zip", DIR_FLAG_NO_FILE_DIRS))
+  CFileItemList items;
+  if (XFILE::CDirectory::GetDirectory("special://home/addons/packages/", items, ".zip", DIR_FLAG_NO_FILE_DIRS))
+  {
+    for (int i = 0; i < items.Size(); ++i)
     {
-      for (int i = 0; i < items.Size(); ++i)
+      std::string packageId;
+      std::string versionString;
+      if (AddonVersion::SplitFileName(packageId, versionString, items[i]->GetLabel()))
       {
-        std::string packageId;
-        std::string versionString;
-        if (AddonVersion::SplitFileName(packageId, versionString, items[i]->GetLabel()))
+        if (packageId == m_localAddon->ID())
         {
-          if (packageId == m_localAddon->ID())
+          std::string hash;
+          std::string path(items[i]->GetPath());
+          if (database.GetPackageHash(m_localAddon->ID(), items[i]->GetPath(), hash))
           {
-            std::string hash;
-            std::string path(items[i]->GetPath());
-            if (database.GetPackageHash(m_localAddon->ID(), items[i]->GetPath(), hash))
-            {
-              std::string md5 = CUtil::GetFileMD5(path);
-              if (md5 == hash)
-                versions.push_back(std::make_pair(AddonVersion(versionString), LOCAL_CACHE));
-            }
+            std::string md5 = CUtil::GetFileMD5(path);
+            if (md5 == hash)
+              versions.push_back(std::make_pair(AddonVersion(versionString), LOCAL_CACHE));
           }
         }
       }
     }
-  });
+  }
 
   if (versions.empty())
     CGUIDialogOK::ShowAndGetInput(CVariant{21341}, CVariant{21342});
@@ -349,12 +346,9 @@ void CGUIDialogAddonInfo::OnInstall()
   std::string addonId = m_item->GetAddonInfo()->ID();
   std::vector<std::pair<AddonVersion, std::string>> versions;
 
-  CGUIDialogBusy::Await([&addonId ,&versions](){
-    CAddonDatabase database;
-    database.Open();
-    database.GetAvailableVersions(addonId, versions);
-  });
-
+  CAddonDatabase database;
+  database.Open();
+  database.GetAvailableVersions(addonId, versions);
   PromptForVersion(std::move(versions));
 }
 
@@ -453,12 +447,10 @@ void CGUIDialogAddonInfo::OnEnableDisable()
       return; //required. can't disable
   }
 
-  CGUIDialogBusy::Await([this](){
-    if (m_addonEnabled)
-      CAddonMgr::GetInstance().DisableAddon(m_localAddon->ID());
-    else
-      CAddonMgr::GetInstance().EnableAddon(m_localAddon->ID());
-  });
+  if (m_addonEnabled)
+    CAddonMgr::GetInstance().DisableAddon(m_localAddon->ID());
+  else
+    CAddonMgr::GetInstance().EnableAddon(m_localAddon->ID());
 
   UpdateControls();
   g_windowManager.SendMessage(GUI_MSG_NOTIFY_ALL, 0, 0, GUI_MSG_UPDATE);
