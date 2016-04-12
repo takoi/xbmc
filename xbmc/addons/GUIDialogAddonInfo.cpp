@@ -283,13 +283,13 @@ void CGUIDialogAddonInfo::OnUpdate()
     AddonPtr repo;
     if (versionInfo.second == LOCAL_CACHE)
     {
-      item.SetProperty("Addon.Summary", g_localizeStrings.Get(24095));
+      item.SetProperty("Description", g_localizeStrings.Get(24095));
       item.SetIconImage("DefaultAddonRepository.png");
       dialog->Add(item);
     }
     else if (CAddonMgr::GetInstance().GetAddon(versionInfo.second, repo, ADDON_REPOSITORY))
     {
-      item.SetProperty("Addon.Summary", repo->Name());
+      item.SetProperty("Description", repo->Name());
       item.SetIconImage(repo->Icon());
       dialog->Add(item);
     }
