@@ -44,6 +44,7 @@
 #include "utils/StringUtils.h"
 #include "dialogs/GUIDialogOK.h"
 #include "dialogs/GUIDialogExtendedProgressBar.h"
+#include "interfaces/generic/ScriptInvocationManager.h"
 #include "URL.h"
 #ifdef TARGET_POSIX
 #include "linux/XTimeUtils.h"
@@ -604,10 +605,20 @@ bool CAddonInstallJob::DoWork()
   // run any pre-install functions
   ADDON::OnPreInstall(m_addon);
 
+  AddonPtr currentlyInstalled;
+  CAddonMgr::GetInstance().GetAddon(m_addon->ID(), currentlyInstalled, ADDON_SERVICE, false);
+
   if (!CAddonMgr::GetInstance().UnloadAddon(m_addon))
   {
     CLog::Log(LOGERROR, "CAddonInstallJob[%s]: failed to unload addon.", m_addon->ID().c_str());
     return false;
+  }
+
+  if (currentlyInstalled)
+  {
+    // If done correctly, it should not be possible to start this service when it's unloaded.
+    CServiceBroker::GetServiceAddons().Start(currentlyInstalled);
+    XbmcThreads::ThreadSleep(2000);
   }
 
   // perform install
