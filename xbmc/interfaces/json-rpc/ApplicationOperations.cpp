@@ -112,6 +112,17 @@ JSONRPC_STATUS CApplicationOperations::Quit(const std::string &method, ITranspor
   return ACK;
 }
 
+std::string CApplicationOperations::response = "";
+
+JSONRPC_STATUS CApplicationOperations::HandleUri(const std::string &method, ITransportLayer *transport, IClient *client, const CVariant &parameterObject, CVariant &result)
+{
+  if (parameterObject["value"].isString()) {
+    CApplicationOperations::response = parameterObject["value"].asString();
+    return ACK;
+  }
+  return InvalidParams;
+}
+
 JSONRPC_STATUS CApplicationOperations::GetPropertyValue(const std::string &property, CVariant &result)
 {
   if (property == "volume")

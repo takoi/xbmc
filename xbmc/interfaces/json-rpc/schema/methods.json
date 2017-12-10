@@ -2423,6 +2423,16 @@
     "params": [],
     "returns": "string"
   },
+  "Application.HandleUri": {
+    "type": "method",
+    "description": "",
+    "transport": "Response",
+    "permission": "Navigate",
+    "params": [
+      { "name": "value", "type": "string", "required": true, "minLength": 1 }
+    ],
+    "returns": "string"
+  },
   "XBMC.GetInfoLabels": {
     "type": "method",
     "description": "Retrieve info labels about Kodi and the system",

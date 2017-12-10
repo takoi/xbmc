@@ -337,6 +337,19 @@
     ],
     "returns": null
   },
+  "Application.OnOpenUri": {
+    "type": "notification",
+    "description": "The application would like to open and URI.",
+    "params": [
+      { "name": "sender", "type": "string", "required": true },
+      { "name": "data", "type": "object", "required": true,
+        "properties": {
+          "value": { "type": "string", "required": true }
+        }
+      }
+    ],
+    "returns": null
+  },
   "Input.OnInputRequested": {
     "type": "notification",
     "description": "The user is requested to provide some information.",

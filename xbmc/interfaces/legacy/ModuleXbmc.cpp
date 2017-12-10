@@ -58,6 +58,9 @@
 
 #include "threads/SystemClock.h"
 #include <vector>
+#include "interfaces/IAnnouncer.h"
+#include "interfaces/AnnouncementManager.h"
+#include "interfaces/json-rpc/ApplicationOperations.h"
 #include "utils/log.h"
 
 using namespace KODI::MESSAGING;
@@ -527,6 +530,19 @@ namespace XBMCAddon
     {
       return CSysInfo::GetUserAgent();
     }
+
+    void requestAuthorization(const String& uri)
+    {
+      JSONRPC::CApplicationOperations::response = "";
+      CVariant data;
+      data["value"] = uri;
+      ANNOUNCEMENT::CAnnouncementManager::GetInstance().Announce(ANNOUNCEMENT::Application, "xbmc", "OnOpenUri", data);
+    }
+
+    String getResponse()
+    {
+      return JSONRPC::CApplicationOperations::response;
+    };
 
     int getSERVER_WEBSERVER() { return CApplication::ES_WEBSERVER; }
     int getSERVER_AIRPLAYSERVER() { return CApplication::ES_AIRPLAYSERVER; }

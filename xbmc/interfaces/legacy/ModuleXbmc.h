@@ -984,6 +984,20 @@ namespace XBMCAddon
 
 #ifdef DOXYGEN_SHOULD_USE_THIS
     ///
+    requestAuthorization(...);
+#else
+    void requestAuthorization(const String& uri);
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+    ///
+    getResponse();
+#else
+    String getResponse();
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+    ///
     /// \ingroup python_xbmc
     /// @brief \python_func{ executehttpapi(httpcommand) }
     ///-----------------------------------------------------------------------
